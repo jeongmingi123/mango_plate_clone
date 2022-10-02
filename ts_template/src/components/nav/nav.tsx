@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMatch } from "react-router-dom";
-import styled from "styled-components";
 import tw from "tailwind-styled-components";
-import NavInnerSearch from "../nav_inner_search/nav_inner_search";
 
 export interface INavbarProps {}
 
@@ -101,7 +99,7 @@ export function Nav() {
         </Navbar>
         <TextBox>
           <Text>솔직한 리뷰, 믿을 수 있는 평점!</Text>
-          <Text>망고 플레이트</Text>
+          <Text>호박고구마 플레이트</Text>
           <InnerSearch>
             <SearchInput></SearchInput>
             <SearchBtn>검색</SearchBtn>
