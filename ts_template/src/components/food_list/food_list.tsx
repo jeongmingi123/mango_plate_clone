@@ -1,14 +1,13 @@
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
-import FoodService, { FoodType } from "../../service/foodService";
+import FoodItem from "../food_item/food_item";
 
 interface IFoodList {
   titleName: string;
-  foodService: {
-    getFoods(foodType: FoodType, count: number): string[];
-  };
+  urls: string[];
 }
+
 const FoodListWrapper = tw.section`
   w-full
   foodList-height
@@ -26,8 +25,8 @@ const Header = tw.div`
 
 const FoodListBox = tw.div`
   grid
-  grid-cols-3
-  gap-7
+  grid-cols-4
+  gap-4
 `;
 
 const Title = tw.h1`
@@ -35,8 +34,7 @@ const Title = tw.h1`
   text-2xl
 `;
 
-const FoodList = ({ titleName, foodService }: IFoodList) => {
-  const urls = foodService.getFoods("burger", 8);
+const FoodList = ({ titleName, urls }: IFoodList) => {
   return (
     <>
       <FoodListWrapper>
@@ -46,7 +44,7 @@ const FoodList = ({ titleName, foodService }: IFoodList) => {
         </Header>
         <FoodListBox>
           {urls.map((url) => (
-            <img src={url} key={url} width="550px" height="250px" />
+            <FoodItem url={url} key={url} />
           ))}
         </FoodListBox>
       </FoodListWrapper>

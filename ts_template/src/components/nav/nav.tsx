@@ -1,13 +1,15 @@
+import { useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
 
 export interface INavbarProps {}
 
-const NavContainer = tw.div<{ isHome: boolean }>`
+const NavContainer = tw.div<{ isHome: boolean; isOver: boolean }>`
   ${(props) => (props.isHome ? "nav-height" : "h-48")}
   w-full
-  bg-orange-400
+  ${(props) => (props.isOver ? "bg-amber-500" : "bg-orange-400")}
   text-white
 `;
 
@@ -77,9 +79,22 @@ const SearchBtn = tw.button`
 export function Nav() {
   const homeMatch = useMatch("/");
 
+  const { scrollY } = useScroll();
+  const [isOver, setIsOver] = useState(false);
+
+  useEffect(() => {
+    scrollY.onChange(() => {
+      if (scrollY.get() > 100) {
+        setIsOver(true);
+      } else {
+        setIsOver(false);
+      }
+    });
+  }, [scrollY]);
+
   return (
     <>
-      <NavContainer isHome={homeMatch !== null}>
+      <NavContainer isOver={isOver} isHome={homeMatch !== null}>
         <Navbar>
           <Link to="/" style={{ display: "inline-block", height: "40px" }}>
             Sweet PLATE
