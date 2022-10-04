@@ -17,20 +17,27 @@ class FoodService {
     this.baseUrl = "https://foodish-api.herokuapp.com/images";
   }
 
-  getFoods(foodType: FoodType, count: number) {
+  getPopularFood(foodType: FoodType): string {
+    const url: string = `${this.baseUrl}/${foodType}/${foodType}30.jpg`;
+    return url;
+  }
+
+  getPopularFoods(): string[] {
+    const urls: string[] = [];
+    urls.push(this.getPopularFood("burger"));
+    urls.push(this.getPopularFood("pizza"));
+    urls.push(this.getPopularFood("dessert"));
+    urls.push(this.getPopularFood("pasta"));
+    return urls;
+  }
+
+  getFoods(foodType: FoodType, count: number): string[] {
     const urls: string[] = [];
     for (let i = 1; i <= count; i++) {
       const url: string = `${this.baseUrl}/${foodType}/${foodType}${i}.jpg`;
       urls.push(url);
     }
-
     return urls;
-
-    // return await Promise.all(urls.map((url) => fetch(url))).then((res) =>
-    //   Promise.all(res.map((res) => res.json()))
-    //     .then(console.log)
-    //     .catch(console.log)
-    // );
   }
 }
 

@@ -10,7 +10,6 @@ interface IFoodList {
 
 const FoodListWrapper = tw.section`
   w-full
-  foodList-height
   bg-white
   p-14
 `;

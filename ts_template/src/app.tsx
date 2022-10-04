@@ -8,6 +8,7 @@ import { FoodType } from "./service/foodService";
 interface IProps {
   foodService: {
     getFoods(foodType: FoodType, count: number): string[];
+    getPopularFoods(): string[];
   };
 }
 

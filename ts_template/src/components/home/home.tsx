@@ -8,6 +8,7 @@ import { FoodType } from "../../service/foodService";
 export interface IHomeProps {
   foodService: {
     getFoods(foodType: FoodType, count: number): string[];
+    getPopularFoods(): string[];
   };
 }
 
@@ -19,15 +20,18 @@ const Home = ({ foodService }: IHomeProps) => {
   const riceUrls = foodService.getFoods("rice", 8);
   const dosaUrls = foodService.getFoods("dosa", 8);
 
+  const popularFoodUrls = foodService.getPopularFoods();
+
   return (
     <>
       <Nav />
+      <FoodList titleName="믿고 보는 맛집 리스트" urls={popularFoodUrls} />
       <FoodList titleName="햄버거 맛집 리스트" urls={hamburgurUrls} />
       <FoodList titleName="디저트 맛집 리스트" urls={dessertUrls} />
       <FoodList titleName="피자 맛집 리스트" urls={pizzaUrls} />
       <FoodList titleName="파스트 맛집 리스트" urls={pastaUrls} />
       <FoodList titleName="볶음밥 맛집 리스트" urls={riceUrls} />
-      <FoodList titleName="볶음밥 맛집 리스트" urls={dosaUrls} />
+      <FoodList titleName="도사 맛집 리스트" urls={dosaUrls} />
     </>
   );
 };
