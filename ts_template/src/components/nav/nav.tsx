@@ -17,6 +17,7 @@ const Navbar = tw.div<{ isOverTextBox: boolean }>`
   ${(props) => (props.isOverTextBox ? "bg-white" : "bg-orange-400")}
   ${(props) => (props.isOverTextBox ? "shadow-2xl" : "")}
   ${(props) => (props.isOverTextBox ? "shadow-orange-500/40" : "")}
+  ${(props) => (props.isOverTextBox ? "border-b-2" : "")}
   flex
   w-full
   justify-between
