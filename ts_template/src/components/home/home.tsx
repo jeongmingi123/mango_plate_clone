@@ -26,8 +26,8 @@ const Home = ({ foodService }: IHomeProps) => {
     <>
       <Nav />
       <FoodList titleName="믿고 보는 맛집 리스트" urls={popularFoodUrls} />
-      <FoodList titleName="햄버거 맛집 리스트" urls={hamburgurUrls} />
       <FoodList titleName="디저트 맛집 리스트" urls={dessertUrls} />
+      <FoodList titleName="햄버거 맛집 리스트" urls={hamburgurUrls} />
       <FoodList titleName="피자 맛집 리스트" urls={pizzaUrls} />
       <FoodList titleName="파스트 맛집 리스트" urls={pastaUrls} />
       <FoodList titleName="볶음밥 맛집 리스트" urls={riceUrls} />
