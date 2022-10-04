@@ -7,16 +7,16 @@ import { motion } from "framer-motion";
 
 export interface INavbarProps {}
 
-const NavContainer = tw.div<{ isOver: boolean }>`
+const NavContainer = tw.div<{ isOverTextBox: boolean }>`
   w-full
 `;
 
-const Navbar = tw.div<{ isOver: boolean }>`
-  ${(props) => (props.isOver ? "fixed" : "static")}
-  ${(props) => (props.isOver ? "text-black" : "text-white")}
-  ${(props) => (props.isOver ? "bg-white" : "bg-orange-400")}
-  ${(props) => (props.isOver ? "shadow-2xl" : "")}
-  ${(props) => (props.isOver ? "shadow-orange-500/40" : "")}
+const Navbar = tw.div<{ isOverTextBox: boolean }>`
+  ${(props) => (props.isOverTextBox ? "fixed" : "static")}
+  ${(props) => (props.isOverTextBox ? "text-black" : "text-white")}
+  ${(props) => (props.isOverTextBox ? "bg-white" : "bg-orange-400")}
+  ${(props) => (props.isOverTextBox ? "shadow-2xl" : "")}
+  ${(props) => (props.isOverTextBox ? "shadow-orange-500/40" : "")}
   flex
   w-full
   justify-between
@@ -46,10 +46,10 @@ const MenuItem = tw.h1`
 
 // Text
 
-const TextBox = tw.div<{ isOver: boolean }>`
-  ${(props) => (props.isOver ? "hidden" : "flex")}
-  ${(props) => (props.isOver ? "" : "bg-orange-400")}
-  ${(props) => (props.isOver ? "" : "h-96")}
+const TextBox = tw.div<{ isOverTextBox: boolean }>`
+  ${(props) => (props.isOverTextBox ? "hidden" : "flex")}
+  ${(props) => (props.isOverTextBox ? "" : "bg-orange-400")}
+  ${(props) => (props.isOverTextBox ? "" : "h-96")}
   flex-col
   items-center
   justify-center
@@ -96,22 +96,22 @@ export function Nav() {
 
   const { scrollY } = useScroll();
 
-  const [isOver, setIsOver] = useState(false);
+  const [isOverTextBox, setIsOverTextBox] = useState(false);
 
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() > 340) {
-        setIsOver(true);
+        setIsOverTextBox(true);
       } else {
-        setIsOver(false);
+        setIsOverTextBox(false);
       }
     });
   }, [scrollY]);
 
   return (
     <>
-      <NavContainer isOver={isOver}>
-        <Navbar isOver={isOver}>
+      <NavContainer isOverTextBox={isOverTextBox}>
+        <Navbar isOverTextBox={isOverTextBox}>
           <Link to="/" style={{ display: "inline-block", height: "32px" }}>
             Sweet PLATE
           </Link>
@@ -131,7 +131,7 @@ export function Nav() {
           </Menu>
         </Navbar>
         {homeMatch ? (
-          <TextBox isOver={isOver}>
+          <TextBox isOverTextBox={isOverTextBox}>
             <Text>솔직한 리뷰, 믿을 수 있는 평점!</Text>
             <Text>호박고구마 플레이트</Text>
             <InnerSearch>
