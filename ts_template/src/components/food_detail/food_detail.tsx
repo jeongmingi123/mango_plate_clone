@@ -12,7 +12,7 @@ const Images = tw.div`
   grid
   grid-cols-5
   w-full
-  mt-2
+  mt-1
   gap-3
   ml-3
 `;
@@ -40,10 +40,12 @@ const DetailNav = tw.div`
   flex
   items-center
   justify-between
+  mb-5
 `;
 
 const DetailNavTexts = tw.div`
-  w-40
+  flex
+  w-60
   text-3xl
 `;
 
@@ -69,17 +71,41 @@ const Icon = tw.i<{ iconName: string }>`
   ${(props) => props.iconName}
 `;
 
+const Box = tw.div`
+  flex
+  flex-col
+`;
+
 const StoreName = tw.span`
 `;
 
+const Type = tw.span`
+  mt-1
+  text-base
+  text-gray-400
+`;
+
 const Rating = tw.span`
-  ml-4
+  ml-1
   text-orange-400
+`;
+
+const Line = tw.div`
+  w-full
+  h-2
+  border-t-2
+`;
+
+// Detail Main
+
+const DetailMain = tw.div`
+  w-full
+  h-96
+  bg-orange-200
 `;
 
 const FoodDetail = ({ food }: IProps) => {
   const params = useParams();
-  console.log(params);
   return (
     <>
       <Nav />
@@ -94,7 +120,10 @@ const FoodDetail = ({ food }: IProps) => {
         <DetailContainer>
           <DetailNav>
             <DetailNavTexts>
-              <StoreName>{food.storeName}</StoreName>
+              <Box>
+                <StoreName>{food.storeName}</StoreName>
+                <Type>{food.branch}</Type>
+              </Box>
               <Rating>{food.rating}</Rating>
             </DetailNavTexts>
             <DetailIcons>
@@ -108,6 +137,9 @@ const FoodDetail = ({ food }: IProps) => {
               </IconContainer>
             </DetailIcons>
           </DetailNav>
+
+          <Line />
+          <DetailMain></DetailMain>
         </DetailContainer>
       </Detail>
     </>

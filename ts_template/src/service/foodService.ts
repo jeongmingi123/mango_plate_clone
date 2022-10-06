@@ -8,7 +8,7 @@ export type Food = {
   rating: number;
   address: "경기도 화성시 병점";
   tel: "*23#";
-  branch: "병점점";
+  branch: "경기도 화성시 병점점";
   menu: "안알려줌";
 };
 
@@ -41,7 +41,7 @@ class FoodService {
       rating: 4.3,
       address: "경기도 화성시 병점",
       tel: "*23#",
-      branch: "병점점",
+      branch: "경기도 화성시 병점점",
       menu: "안알려줌",
     };
   }
@@ -67,7 +67,7 @@ class FoodService {
         rating: 4.5,
         address: "경기도 화성시 병점",
         tel: "*23#",
-        branch: "병점점",
+        branch: "경기도 화성시 병점점",
         menu: "안알려줌",
       });
     }
