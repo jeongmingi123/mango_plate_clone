@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
-import { motion } from "framer-motion";
 
 export interface INavbarProps {}
 

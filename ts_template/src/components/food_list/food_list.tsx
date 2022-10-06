@@ -1,11 +1,11 @@
-import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
+import { Food } from "../../service/foodService";
 import FoodItem from "../food_item/food_item";
 
 interface IFoodList {
   titleName: string;
-  urls: string[];
+  foods: Food[];
 }
 
 const FoodListWrapper = tw.section`
@@ -25,7 +25,7 @@ const Header = tw.div`
 const FoodListBox = tw.div`
   grid
   grid-cols-4
-  gap-4
+  gap-3
 `;
 
 const Title = tw.h1`
@@ -33,7 +33,7 @@ const Title = tw.h1`
   text-2xl
 `;
 
-const FoodList = ({ titleName, urls }: IFoodList) => {
+const FoodList = ({ titleName, foods }: IFoodList) => {
   return (
     <>
       <FoodListWrapper>
@@ -42,8 +42,8 @@ const FoodList = ({ titleName, urls }: IFoodList) => {
           <Link to="/">리스트 더 보기</Link>
         </Header>
         <FoodListBox>
-          {urls.map((url) => (
-            <FoodItem url={url} key={url} />
+          {foods.map((food) => (
+            <FoodItem food={food} key={food.id} />
           ))}
         </FoodListBox>
       </FoodListWrapper>

@@ -1,37 +1,35 @@
-import * as React from "react";
 import { Nav } from "../nav/nav";
-import tw from "tailwind-styled-components";
 import FoodList from "../food_list/food_list";
-import FoodService from "../../service/foodService";
+import { Food } from "../../service/foodService";
 import { FoodType } from "../../service/foodService";
 
 export interface IHomeProps {
   foodService: {
-    getFoods(foodType: FoodType, count: number): string[];
-    getPopularFoods(): string[];
+    getFoods(foodType: FoodType, count: number): Food[];
+    getPopularFoods(): Food[];
   };
 }
 
 const Home = ({ foodService }: IHomeProps) => {
-  const hamburgurUrls = foodService.getFoods("burger", 8);
-  const dessertUrls = foodService.getFoods("dessert", 8);
-  const pizzaUrls = foodService.getFoods("pizza", 8);
-  const pastaUrls = foodService.getFoods("pasta", 8);
-  const riceUrls = foodService.getFoods("rice", 8);
-  const dosaUrls = foodService.getFoods("dosa", 8);
-
   const popularFoodUrls = foodService.getPopularFoods();
+
+  const hamburgurs = foodService.getFoods("burger", 8);
+  const desserts = foodService.getFoods("dessert", 8);
+  const pizzas = foodService.getFoods("pizza", 8);
+  const pastas = foodService.getFoods("pasta", 8);
+  const rices = foodService.getFoods("rice", 8);
+  const dosas = foodService.getFoods("dosa", 8);
 
   return (
     <>
       <Nav />
-      <FoodList titleName="믿고 보는 맛집 리스트" urls={popularFoodUrls} />
-      <FoodList titleName="디저트 맛집 리스트" urls={dessertUrls} />
-      <FoodList titleName="햄버거 맛집 리스트" urls={hamburgurUrls} />
-      <FoodList titleName="피자 맛집 리스트" urls={pizzaUrls} />
-      <FoodList titleName="파스트 맛집 리스트" urls={pastaUrls} />
-      <FoodList titleName="볶음밥 맛집 리스트" urls={riceUrls} />
-      <FoodList titleName="도사 맛집 리스트" urls={dosaUrls} />
+      <FoodList titleName="믿고 보는 맛집 리스트" foods={popularFoodUrls} />
+      <FoodList titleName="디저트 맛집 리스트" foods={desserts} />
+      <FoodList titleName="햄버거 맛집 리스트" foods={hamburgurs} />
+      <FoodList titleName="피자 맛집 리스트" foods={pizzas} />
+      <FoodList titleName="파스트 맛집 리스트" foods={pastas} />
+      <FoodList titleName="볶음밥 맛집 리스트" foods={rices} />
+      <FoodList titleName="도사 맛집 리스트" foods={dosas} />
     </>
   );
 };
