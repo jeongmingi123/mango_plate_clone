@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { Food } from "./service/foodService";
+import { Food } from "../service/foodService";
 
 export const foodState = atom<Food>({
   key: "food",
@@ -10,3 +10,8 @@ export const popularFoodState = atom<Food[]>({
   key: "popularFood",
   default: [],
 });
+
+// export const reviewsState = atom<Food[]>({
+//   key: "reviews",
+//   default: [],
+// });

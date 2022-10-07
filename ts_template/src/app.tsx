@@ -3,8 +3,9 @@ import Home from "./components/home/home";
 import { Food } from "./service/foodService";
 import { FoodType } from "./service/foodService";
 import FoodDetail from "./components/food_detail/food_detail";
-import { foodState } from "./atoms";
+import { foodState } from "./store/atoms";
 import { useRecoilValue } from "recoil";
+import AddDetailReview from "./components/add_detail_review/add_detail_review";
 
 interface IProps {
   foodService: {
@@ -21,6 +22,7 @@ function App({ foodService }: IProps) {
         <Routes>
           <Route path="/" element={<Home foodService={foodService} />}></Route>
           <Route path="/:type/:id" element={<FoodDetail food={food} />}></Route>
+          <Route path="/:type/:id/new" element={<AddDetailReview />}></Route>
         </Routes>
       </BrowserRouter>
     </>

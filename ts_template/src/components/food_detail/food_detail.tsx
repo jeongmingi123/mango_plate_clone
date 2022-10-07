@@ -1,11 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import FoodService, { Food } from "../../service/foodService";
 import { Nav } from "../nav/nav";
 import tw from "tailwind-styled-components";
 import { useEffect } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-import { popularFoodState } from "../../atoms";
+import { popularFoodState } from "../../store/atoms";
 
 interface IProps {
   food: Food;
@@ -58,7 +58,7 @@ const DetailNavTexts = tw.div`
 `;
 
 const DetailIcons = tw.div`
-  w-32
+  w-28
   flex
   justify-between
 `;
@@ -133,10 +133,42 @@ const Td = tw.td`
   text-gray-500
 `;
 
+// Reivew
+const ReviewWrapper = tw.div`
+ w-full
+ mt-3
+ flex
+ justify-between
+ h-96
+`;
+
+const ReviewTitleWrapper = tw.div`
+  w-40
+  text-xl
+  text-gray-400
+`;
+
+const ReviewTitle = tw.span``;
+
+const ReviewCount = tw.span`
+  ml-1
+`;
+
+const ReviewEvaluationWrapper = tw.div`
+  w-80
+  flex
+  justify-between
+  text-lg
+  text-gray-400
+`;
+
+const ReviewEvaluationContainer = tw.div`
+`;
+const ReviewEvaluation = tw.span``;
+
 // more infomation => map, restaurant
 const MoreInfo = tw.div`
   w-1/5
-  h-96
   bg-stone-200
 `;
 
@@ -223,14 +255,23 @@ const FoodDetail = ({ food }: IProps) => {
                 <Rating>{food.rating}</Rating>
               </DetailNavTexts>
               <DetailIcons>
-                <IconContainer>
-                  <Icon iconName="fa-solid fa-pen" />
-                  <Text>리뷰쓰기</Text>
-                </IconContainer>
-                <IconContainer>
-                  <Icon iconName="fa-regular fa-star" />
-                  <Text>가고싶다</Text>
-                </IconContainer>
+                <Link
+                  to={{
+                    pathname: `/${food.type}/${food.id}/new`,
+                  }}
+                >
+                  <IconContainer>
+                    <Icon iconName="fa-solid fa-pen" />
+                    <Text>리뷰쓰기</Text>
+                  </IconContainer>
+                </Link>
+
+                <Link to={`/${food.type}/${food.id}/new`}>
+                  <IconContainer>
+                    <Icon iconName="fa-regular fa-star" />
+                    <Text>가고싶다</Text>
+                  </IconContainer>
+                </Link>
               </DetailIcons>
             </DetailNav>
             <Line />
@@ -277,6 +318,32 @@ const FoodDetail = ({ food }: IProps) => {
               </DetailTable>
             </DetailMain>
             <Line />
+
+            {/* Review  */}
+            <ReviewWrapper>
+              <ReviewTitleWrapper>
+                <ReviewTitle>리뷰</ReviewTitle>
+                <ReviewCount>(0)</ReviewCount>
+              </ReviewTitleWrapper>
+              <ReviewEvaluationWrapper>
+                <ReviewEvaluationContainer>
+                  <ReviewEvaluation>전체</ReviewEvaluation>
+                  <ReviewCount>(0)</ReviewCount>
+                </ReviewEvaluationContainer>
+                <ReviewEvaluationContainer>
+                  <ReviewEvaluation>맛있다</ReviewEvaluation>
+                  <ReviewCount>(0)</ReviewCount>
+                </ReviewEvaluationContainer>
+                <ReviewEvaluationContainer>
+                  <ReviewEvaluation>괜찮다</ReviewEvaluation>
+                  <ReviewCount>(0)</ReviewCount>
+                </ReviewEvaluationContainer>
+                <ReviewEvaluationContainer>
+                  <ReviewEvaluation>별로</ReviewEvaluation>
+                  <ReviewCount>(0)</ReviewCount>
+                </ReviewEvaluationContainer>
+              </ReviewEvaluationWrapper>
+            </ReviewWrapper>
           </DetailContainer>
         </Detail>
         <MoreInfo>
