@@ -32,10 +32,10 @@ class FoodService {
   }
 
   getPopularFood(foodType: FoodType): Food {
-    const url: string = `${this.baseUrl}/${foodType}/${foodType}30.jpg`;
+    const url: string = `${this.baseUrl}/${foodType}/${foodType}18.jpg`;
     return {
       id: uuidv4(),
-      storeName: `${foodType}30`,
+      storeName: `${foodType}18`,
       type: foodType,
       url,
       rating: 4.3,

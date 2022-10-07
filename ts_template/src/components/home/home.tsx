@@ -2,6 +2,9 @@ import { Nav } from "../nav/nav";
 import FoodList from "../food_list/food_list";
 import { Food } from "../../service/foodService";
 import { FoodType } from "../../service/foodService";
+import { popularFoodState } from "../../atoms";
+import { useSetRecoilState } from "recoil";
+import { useEffect } from "react";
 
 export interface IHomeProps {
   foodService: {
@@ -11,6 +14,8 @@ export interface IHomeProps {
 }
 
 const Home = ({ foodService }: IHomeProps) => {
+  const setPopularFoods = useSetRecoilState(popularFoodState);
+
   const popularFoodUrls = foodService.getPopularFoods();
 
   const hamburgurs = foodService.getFoods("burger", 8);
@@ -19,6 +24,10 @@ const Home = ({ foodService }: IHomeProps) => {
   const pastas = foodService.getFoods("pasta", 8);
   const rices = foodService.getFoods("rice", 8);
   const dosas = foodService.getFoods("dosa", 8);
+
+  useEffect(() => {
+    setPopularFoods(popularFoodUrls);
+  }, []);
 
   return (
     <>
