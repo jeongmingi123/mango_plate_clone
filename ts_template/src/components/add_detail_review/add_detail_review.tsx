@@ -2,6 +2,9 @@ import { Nav } from "../nav/nav";
 import { useRecoilValue } from "recoil";
 import { foodState } from "../../store/atoms";
 import tw from "tailwind-styled-components";
+import { useState } from "react";
+
+type expressionType = "Good" | "Normal" | "Bad";
 
 const Section = tw.section`
   w-full
@@ -40,22 +43,27 @@ const Evaluation = tw.div`
   text-md
   mt-3
   ml-3
-  text-gray-300
 `;
 
-const Good = tw.div`
+const Good = tw.div<{ isActive: boolean }>`
   flex
   items-center
+  ${(props) => (props.isActive ? "text-orange-400" : "text-gray-300")}
+  cursor-pointer
 `;
 
-const Normal = tw.div`
+const Normal = tw.div<{ isActive: boolean }>`
   flex
   items-center
+  ${(props) => (props.isActive ? "text-orange-400" : "text-gray-300")}
+  cursor-pointer
 `;
 
-const Bad = tw.div`
+const Bad = tw.div<{ isActive: boolean }>`
   flex
   items-center
+  ${(props) => (props.isActive ? "text-orange-400" : "text-gray-300")}
+  cursor-pointer
 `;
 
 const Icon = tw.i<{ icon: string }>`
@@ -65,11 +73,24 @@ const Icon = tw.i<{ icon: string }>`
 
 const RatingText = tw.span`
   ml-2
-
 `;
 
 const AddDetailReview = () => {
   const food = useRecoilValue(foodState);
+  const [expression, setExpression] = useState<expressionType>("Good");
+
+  const onGood = () => {
+    setExpression("Good");
+  };
+
+  const onNormal = () => {
+    setExpression("Normal");
+  };
+
+  const onBad = () => {
+    setExpression("Bad");
+  };
+
   return (
     <>
       <Nav></Nav>
@@ -81,15 +102,15 @@ const AddDetailReview = () => {
           </TitleWapper>
           <ReviewEditor>
             <Evaluation>
-              <Good>
+              <Good isActive={expression === "Good"} onClick={onGood}>
                 <Icon icon="fa-regular fa-face-smile"></Icon>
                 <RatingText>맛있다</RatingText>
               </Good>
-              <Normal>
+              <Normal isActive={expression === "Normal"} onClick={onNormal}>
                 <Icon icon="fa-regular fa-face-meh"></Icon>
                 <RatingText>괜찮다</RatingText>
               </Normal>
-              <Bad>
+              <Bad isActive={expression === "Bad"} onClick={onBad}>
                 <Icon icon="fa-regular fa-face-frown-open"></Icon>
                 <RatingText>별로</RatingText>
               </Bad>
