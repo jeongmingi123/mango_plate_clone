@@ -5,7 +5,8 @@ import FoodItem from "../food_item/food_item";
 
 interface IFoodList {
   titleName: string;
-  foods: Food[];
+  foods: Food[] | undefined;
+  isLoading: boolean;
 }
 
 const FoodListWrapper = tw.section`
@@ -33,7 +34,7 @@ const Title = tw.h1`
   text-2xl
 `;
 
-const FoodList = ({ titleName, foods }: IFoodList) => {
+const FoodList = ({ titleName, foods, isLoading }: IFoodList) => {
   return (
     <>
       <FoodListWrapper>
@@ -42,9 +43,11 @@ const FoodList = ({ titleName, foods }: IFoodList) => {
           <Link to="/">리스트 더 보기</Link>
         </Header>
         <FoodListBox>
-          {foods.map((food) => (
-            <FoodItem food={food} key={food.id} />
-          ))}
+          {isLoading ? (
+            <div>loading...</div>
+          ) : (
+            foods && foods.map((food) => <FoodItem food={food} key={food.id} />)
+          )}
         </FoodListBox>
       </FoodListWrapper>
     </>

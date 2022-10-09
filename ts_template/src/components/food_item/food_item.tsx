@@ -45,7 +45,7 @@ const FoodItem = ({ food }: IFoodItem) => {
   return (
     <>
       <Link to={{ pathname: `/${food.type}/${food.id}` }}>
-        <Img src={food.url} onClick={handleFood} />
+        <Img src={food.image} onClick={handleFood} />
         <Box>
           <TextContainer>
             <StoreNameText>{food.storeName}</StoreNameText>

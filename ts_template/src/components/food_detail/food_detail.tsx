@@ -1,14 +1,18 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import FoodService, { Food } from "../../service/foodService";
+import FoodService, { Food, FoodType } from "../../service/foodService";
 import { Nav } from "../nav/nav";
 import tw from "tailwind-styled-components";
 import { useEffect } from "react";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { popularFoodState } from "../../store/atoms";
+import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
+import { popularFoodState, foodState } from "../../store/atoms";
+import { useQuery } from "react-query";
 
 interface IProps {
-  food: Food;
+  foodService: {
+    getFoods(foodType: FoodType): Promise<Food[]>[];
+    getFoodById(foodType: string, id: string): Promise<Food>;
+  };
 }
 
 const Images = tw.div`
@@ -228,155 +232,164 @@ const Dd = tw.dd`
   text-gray-700
 `;
 
-const FoodDetail = ({ food }: IProps) => {
+const FoodDetail = ({ foodService }: IProps) => {
   const params = useParams();
   const popularFood = useRecoilValue(popularFoodState);
-  console.log(popularFood);
+
+  const { data: food, isLoading } = useQuery<Food>(["detailFood"], () => {
+    return foodService.getFoodById(params.type!, params.id!);
+  });
+
+  console.log(food);
 
   return (
     <>
       <Nav />
-      <Images>
-        <Image src={food.url} />
-        <Image src={food.url} />
-        <Image src={food.url} />
-        <Image src={food.url} />
-        <Image src={food.url} />
-      </Images>
-      <Wrapper>
-        <Detail>
-          <DetailContainer>
-            <DetailNav>
-              <DetailNavTexts>
-                <Box>
-                  <StoreName>{food.storeName}</StoreName>
-                  <Type>{food.branch}</Type>
-                </Box>
-                <Rating>{food.rating}</Rating>
-              </DetailNavTexts>
-              <DetailIcons>
-                <Link
-                  to={{
-                    pathname: `/${food.type}/${food.id}/new`,
-                  }}
-                >
-                  <IconContainer>
-                    <Icon iconName="fa-solid fa-pen" />
-                    <Text>리뷰쓰기</Text>
-                  </IconContainer>
-                </Link>
+      {isLoading ? (
+        <div>loading... </div>
+      ) : (
+        <>
+          <Images>
+            {food!.detailImage.map((image) => (
+              <Image src={image} />
+            ))}
+          </Images>
+          <Wrapper>
+            <Detail>
+              <DetailContainer>
+                <DetailNav>
+                  <DetailNavTexts>
+                    <Box>
+                      <StoreName>{food!.storeName}</StoreName>
+                      <Type>{food!.branch}</Type>
+                    </Box>
+                    <Rating>{food!.rating}</Rating>
+                  </DetailNavTexts>
+                  <DetailIcons>
+                    <Link
+                      to={{
+                        pathname: `/${food!.type}/${food!.id}/new`,
+                      }}
+                    >
+                      <IconContainer>
+                        <Icon iconName="fa-solid fa-pen" />
+                        <Text>리뷰쓰기</Text>
+                      </IconContainer>
+                    </Link>
 
-                <Link to={`/${food.type}/${food.id}/new`}>
-                  <IconContainer>
-                    <Icon iconName="fa-regular fa-star" />
-                    <Text>가고싶다</Text>
-                  </IconContainer>
-                </Link>
-              </DetailIcons>
-            </DetailNav>
-            <Line />
-            <DetailMain>
-              <DetailTable>
-                <TableBody>
-                  <Tr>
-                    <Th>주소</Th>
-                    <Td>{food.address}</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>전화번호</Th>
-                    <Td>{food.tel}</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>가격대</Th>
-                    <Td>2만원 미만</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>음식 종류</Th>
-                    <Td>{food.type}</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>주차</Th>
-                    <Td>안됨</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>영업시간</Th>
-                    <Td>12:00 ~ 22:00</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>쉬는시간</Th>
-                    <Td>16:00 ~ 17:00</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>마지막주문</Th>
-                    <Td>22:00</Td>
-                  </Tr>
-                  <Tr>
-                    <Th>웹 사이트</Th>
-                    <Td>없음</Td>
-                  </Tr>
-                </TableBody>
-              </DetailTable>
-            </DetailMain>
-            <Line />
+                    <Link to={`/${food!.type}/${food!.id}/new`}>
+                      <IconContainer>
+                        <Icon iconName="fa-regular fa-star" />
+                        <Text>가고싶다</Text>
+                      </IconContainer>
+                    </Link>
+                  </DetailIcons>
+                </DetailNav>
+                <Line />
+                <DetailMain>
+                  <DetailTable>
+                    <TableBody>
+                      <Tr>
+                        <Th>주소</Th>
+                        <Td>{food!.address}</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>전화번호</Th>
+                        <Td>{food!.tel}</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>가격대</Th>
+                        <Td>2만원 미만</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>음식 종류</Th>
+                        <Td>{food!.menu[0]}</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>주차</Th>
+                        <Td>안됨</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>영업시간</Th>
+                        <Td>12:00 ~ 22:00</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>쉬는시간</Th>
+                        <Td>16:00 ~ 17:00</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>마지막주문</Th>
+                        <Td>22:00</Td>
+                      </Tr>
+                      <Tr>
+                        <Th>웹 사이트</Th>
+                        <Td>{food!.url}</Td>
+                      </Tr>
+                    </TableBody>
+                  </DetailTable>
+                </DetailMain>
+                <Line />
 
-            {/* Review  */}
-            <ReviewWrapper>
-              <ReviewTitleWrapper>
-                <ReviewTitle>리뷰</ReviewTitle>
-                <ReviewCount>(0)</ReviewCount>
-              </ReviewTitleWrapper>
-              <ReviewEvaluationWrapper>
-                <ReviewEvaluationContainer>
-                  <ReviewEvaluation>전체</ReviewEvaluation>
-                  <ReviewCount>(0)</ReviewCount>
-                </ReviewEvaluationContainer>
-                <ReviewEvaluationContainer>
-                  <ReviewEvaluation>맛있다</ReviewEvaluation>
-                  <ReviewCount>(0)</ReviewCount>
-                </ReviewEvaluationContainer>
-                <ReviewEvaluationContainer>
-                  <ReviewEvaluation>괜찮다</ReviewEvaluation>
-                  <ReviewCount>(0)</ReviewCount>
-                </ReviewEvaluationContainer>
-                <ReviewEvaluationContainer>
-                  <ReviewEvaluation>별로</ReviewEvaluation>
-                  <ReviewCount>(0)</ReviewCount>
-                </ReviewEvaluationContainer>
-              </ReviewEvaluationWrapper>
-            </ReviewWrapper>
-          </DetailContainer>
-        </Detail>
-        <MoreInfo>
-          <Map>Map</Map>
-          <PopularFoods>
-            <PopularTitle>인기 식당</PopularTitle>
-            {popularFood.length !== 0 &&
-              popularFood.map((food) => (
-                <>
-                  <PopularFoodItem>
-                    <PopularFoodImage src={food.url} />
-                    <PopularTextWapper>
-                      <PopularStoreName>{food.storeName}</PopularStoreName>
-                      <Container>
-                        <Dt>음식 종류:</Dt>
-                        <Dd>{food.type}</Dd>
-                      </Container>
-                      <Container>
-                        <Dt>위치:</Dt>
-                        <Dd>{food.address}</Dd>
-                      </Container>
-                      <Container>
-                        <Dt>가격대</Dt>
-                        <Dd>2만원 미만</Dd>
-                      </Container>
-                    </PopularTextWapper>
-                  </PopularFoodItem>
-                  <Line></Line>
-                </>
-              ))}
-          </PopularFoods>
-        </MoreInfo>
-      </Wrapper>
+                {/* Review  */}
+                <ReviewWrapper>
+                  <ReviewTitleWrapper>
+                    <ReviewTitle>리뷰</ReviewTitle>
+                    <ReviewCount>(0)</ReviewCount>
+                  </ReviewTitleWrapper>
+                  <ReviewEvaluationWrapper>
+                    <ReviewEvaluationContainer>
+                      <ReviewEvaluation>전체</ReviewEvaluation>
+                      <ReviewCount>(0)</ReviewCount>
+                    </ReviewEvaluationContainer>
+                    <ReviewEvaluationContainer>
+                      <ReviewEvaluation>맛있다</ReviewEvaluation>
+                      <ReviewCount>(0)</ReviewCount>
+                    </ReviewEvaluationContainer>
+                    <ReviewEvaluationContainer>
+                      <ReviewEvaluation>괜찮다</ReviewEvaluation>
+                      <ReviewCount>(0)</ReviewCount>
+                    </ReviewEvaluationContainer>
+                    <ReviewEvaluationContainer>
+                      <ReviewEvaluation>별로</ReviewEvaluation>
+                      <ReviewCount>(0)</ReviewCount>
+                    </ReviewEvaluationContainer>
+                  </ReviewEvaluationWrapper>
+                </ReviewWrapper>
+              </DetailContainer>
+            </Detail>
+            <MoreInfo>
+              <Map>Map</Map>
+              <PopularFoods>
+                <PopularTitle>인기 식당</PopularTitle>
+                {popularFood.length !== 0 &&
+                  popularFood.map((food) => (
+                    <>
+                      <PopularFoodItem>
+                        <PopularFoodImage src={food.url} />
+                        <PopularTextWapper>
+                          <PopularStoreName>{food.storeName}</PopularStoreName>
+                          <Container>
+                            <Dt>음식 종류:</Dt>
+                            <Dd>{food.type}</Dd>
+                          </Container>
+                          <Container>
+                            <Dt>위치:</Dt>
+                            <Dd>{food.address}</Dd>
+                          </Container>
+                          <Container>
+                            <Dt>가격대</Dt>
+                            <Dd>2만원 미만</Dd>
+                          </Container>
+                        </PopularTextWapper>
+                      </PopularFoodItem>
+                      <Line></Line>
+                    </>
+                  ))}
+              </PopularFoods>
+            </MoreInfo>
+          </Wrapper>
+        </>
+      )}
     </>
   );
 };

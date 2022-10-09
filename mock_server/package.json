@@ -1,0 +1,19 @@
+{
+  "name": "mock_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mock_server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^6.6.6",
+    "json-server": "^0.17.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
+  }
+}

@@ -9,19 +9,21 @@ import AddDetailReview from "./components/add_detail_review/add_detail_review";
 
 interface IProps {
   foodService: {
-    getFoods(foodType: FoodType, count: number): Food[];
-    getPopularFoods(): Food[];
+    getFoods(foodType: FoodType): any;
+    getFoodById(foodType: string, id: string): any;
   };
 }
 
 function App({ foodService }: IProps) {
-  const food = useRecoilValue(foodState);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home foodService={foodService} />}></Route>
-          <Route path="/:type/:id" element={<FoodDetail food={food} />}></Route>
+          <Route
+            path="/:type/:id"
+            element={<FoodDetail foodService={foodService} />}
+          ></Route>
           <Route path="/:type/:id/new" element={<AddDetailReview />}></Route>
         </Routes>
       </BrowserRouter>

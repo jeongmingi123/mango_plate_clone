@@ -1,0 +1,1245 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "type": "pizza",
+      "storeName": "Auer, Quitzon and Kautzer",
+      "menu": [
+        "Refined Steel Keyboard",
+        "Tasty Wooden Pants",
+        "Handmade Fresh Hat"
+      ],
+      "url": "http://yummy-upstairs.net",
+      "address": "Davisworth",
+      "branch": "Atascocita",
+      "tel": "02-772-7906",
+      "rating": "0.81",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 2,
+      "type": "pizza",
+      "storeName": "Lakin - Feest",
+      "menu": [
+        "Gorgeous Rubber Salad",
+        "Luxurious Cotton Table",
+        "Handmade Plastic Keyboard"
+      ],
+      "url": "http://loose-lead.org",
+      "address": "East Mafalda",
+      "branch": "Gilbert",
+      "tel": "02-036-1533",
+      "rating": "2.2",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 3,
+      "type": "pizza",
+      "storeName": "Wunsch and Sons",
+      "menu": [
+        "Modern Plastic Pants",
+        "Fantastic Plastic Computer",
+        "Elegant Concrete Mouse"
+      ],
+      "url": "https://light-nutrient.name",
+      "address": "Tinley Park",
+      "branch": "Duluth",
+      "tel": "02-833-3309",
+      "rating": "4.0",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 4,
+      "type": "pizza",
+      "storeName": "Mante, Kub and Deckow",
+      "menu": [
+        "Licensed Soft Fish",
+        "Rustic Cotton Table",
+        "Awesome Cotton Fish"
+      ],
+      "url": "http://sardonic-dungarees.com",
+      "address": "Lake Brionnaburgh",
+      "branch": "Denver",
+      "tel": "02-721-8174",
+      "rating": "1.1",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 5,
+      "type": "pizza",
+      "storeName": "Pacocha, Becker and Fadel",
+      "menu": [
+        "Luxurious Granite Gloves",
+        "Handmade Rubber Shoes",
+        "Sleek Frozen Chair"
+      ],
+      "url": "http://cheery-freelance.net",
+      "address": "North Elisabeth",
+      "branch": "Pomona",
+      "tel": "02-656-1386",
+      "rating": "4.4",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 6,
+      "type": "pizza",
+      "storeName": "Reichel Inc",
+      "menu": [
+        "Rustic Concrete Car",
+        "Elegant Concrete Cheese",
+        "Sleek Wooden Chips"
+      ],
+      "url": "https://unsightly-high-rise.net",
+      "address": "Burbank",
+      "branch": "Lake Elsinore",
+      "tel": "02-841-8215",
+      "rating": "2.0",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    },
+    {
+      "id": 7,
+      "type": "pizza",
+      "storeName": "Hirthe - Nitzsche",
+      "menu": [
+        "Handmade Wooden Towels",
+        "Ergonomic Cotton Bacon",
+        "Refined Soft Chips"
+      ],
+      "url": "https://sentimental-criterion.name",
+      "address": "North Port",
+      "branch": "Binghamton",
+      "tel": "02-051-4021",
+      "rating": "3.4",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg"
+    }
+  ],
+  "pizzas": [
+    {
+      "id": 1,
+      "type": "pizza",
+      "storeName": "Johns and Sons",
+      "menu": [
+        "Ergonomic Concrete Gloves",
+        "Incredible Rubber Pizza",
+        "Oriental Granite Fish"
+      ],
+      "url": "https://perfect-precedence.info",
+      "address": "Kleinbury",
+      "branch": "Largo",
+      "tel": "02-151-1855",
+      "rating": "0.35",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "pizza",
+      "storeName": "Toy, Ward and Lesch",
+      "menu": [
+        "Tasty Concrete Pants",
+        "Tasty Fresh Bike",
+        "Sleek Wooden Sausages"
+      ],
+      "url": "https://faithful-spit.info",
+      "address": "Rancho Cordova",
+      "branch": "Eugene",
+      "tel": "02-518-8243",
+      "rating": "0.91",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "pizza",
+      "storeName": "Cole, Thiel and Bartoletti",
+      "menu": [
+        "Gorgeous Fresh Soap",
+        "Recycled Wooden Tuna",
+        "Ergonomic Granite Ball"
+      ],
+      "url": "http://daring-disease.com",
+      "address": "East Jaymeport",
+      "branch": "Reno",
+      "tel": "02-850-6957",
+      "rating": "1.6",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "pizza",
+      "storeName": "Kling - Hane",
+      "menu": [
+        "Generic Granite Towels",
+        "Generic Frozen Gloves",
+        "Practical Soft Chips"
+      ],
+      "url": "http://reflecting-contrast.net",
+      "address": "West Kayli",
+      "branch": "Maple Grove",
+      "tel": "02-681-5857",
+      "rating": "2.9",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "pizza",
+      "storeName": "Von - Hyatt",
+      "menu": [
+        "Practical Frozen Keyboard",
+        "Modern Cotton Shirt",
+        "Incredible Metal Ball"
+      ],
+      "url": "https://knobby-tornado.net",
+      "address": "New Sophie",
+      "branch": "Florin",
+      "tel": "02-105-6237",
+      "rating": "4.4",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "pizza",
+      "storeName": "Lowe - Jacobs",
+      "menu": [
+        "Licensed Steel Towels",
+        "Luxurious Soft Bike",
+        "Handmade Wooden Chicken"
+      ],
+      "url": "https://decimal-collagen.org",
+      "address": "Murlborough",
+      "branch": "Harrisburg",
+      "tel": "02-970-8217",
+      "rating": "3.9",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "pizza",
+      "storeName": "Gibson Inc",
+      "menu": [
+        "Small Steel Ball",
+        "Bespoke Concrete Soap",
+        "Modern Cotton Shirt"
+      ],
+      "url": "https://yellow-category.info",
+      "address": "Marilieborough",
+      "branch": "Apple Valley",
+      "tel": "02-534-6959",
+      "rating": "2.8",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    }
+  ],
+  "burgers": [
+    {
+      "id": 1,
+      "type": "burger",
+      "storeName": "Bechtelar, Trantow and Lubowitz",
+      "menu": ["Bespoke Metal Car", "Refined Soft Fish", "Tasty Soft Chair"],
+      "url": "https://anxious-difference.biz",
+      "address": "Dickensstead",
+      "branch": "Tampa",
+      "tel": "02-173-5548",
+      "rating": "3.2",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "burger",
+      "storeName": "Hackett - Stoltenberg",
+      "menu": [
+        "Luxurious Metal Bike",
+        "Rustic Rubber Soap",
+        "Fantastic Fresh Chair"
+      ],
+      "url": "https://complete-atrium.name",
+      "address": "Hilpertworth",
+      "branch": "El Paso",
+      "tel": "02-893-5517",
+      "rating": "2.5",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "burger",
+      "storeName": "Auer - Hagenes",
+      "menu": [
+        "Bespoke Cotton Table",
+        "Gorgeous Granite Table",
+        "Small Wooden Tuna"
+      ],
+      "url": "https://detailed-scenario.org",
+      "address": "East Nicoletteview",
+      "branch": "Akron",
+      "tel": "02-150-4183",
+      "rating": "4.5",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "burger",
+      "storeName": "Pfeffer and Sons",
+      "menu": [
+        "Modern Wooden Tuna",
+        "Small Metal Salad",
+        "Ergonomic Concrete Soap"
+      ],
+      "url": "https://flashy-cuisine.name",
+      "address": "Leschland",
+      "branch": "Daytona Beach",
+      "tel": "02-365-0926",
+      "rating": "4.9",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "burger",
+      "storeName": "Hills Group",
+      "menu": [
+        "Sleek Metal Bike",
+        "Incredible Rubber Keyboard",
+        "Ergonomic Steel Bike"
+      ],
+      "url": "http://parched-series.com",
+      "address": "Wymanboro",
+      "branch": "Burnsville",
+      "tel": "02-574-6562",
+      "rating": "3.1",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "burger",
+      "storeName": "Altenwerth and Sons",
+      "menu": [
+        "Modern Fresh Cheese",
+        "Modern Plastic Soap",
+        "Awesome Concrete Tuna"
+      ],
+      "url": "http://enchanting-infusion.biz",
+      "address": "Shreveport",
+      "branch": "Pleasanton",
+      "tel": "02-368-8915",
+      "rating": "0.94",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "burger",
+      "storeName": "Balistreri - O'Hara",
+      "menu": [
+        "Bespoke Soft Cheese",
+        "Awesome Metal Towels",
+        "Generic Granite Soap"
+      ],
+      "url": "http://flaky-sari.org",
+      "address": "Keiraview",
+      "branch": "Poinciana",
+      "tel": "02-867-1945",
+      "rating": "1.8",
+      "image": "https://foodish-api.herokuapp.com/images/burger/burger7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/burger/burger3.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger4.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger5.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger6.jpg",
+        "https://foodish-api.herokuapp.com/images/burger/burger7.jpg"
+      ]
+    }
+  ],
+  "desserts": [
+    {
+      "id": 1,
+      "type": "dessert",
+      "storeName": "Rice - Bailey",
+      "menu": [
+        "Rustic Steel Shirt",
+        "Gorgeous Plastic Tuna",
+        "Practical Metal Gloves"
+      ],
+      "url": "https://unhealthy-platform.net",
+      "address": "Stockton",
+      "branch": "Tucson",
+      "tel": "02-724-7712",
+      "rating": "0.19",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "dessert",
+      "storeName": "Rice and Sons",
+      "menu": [
+        "Intelligent Fresh Pants",
+        "Recycled Granite Computer",
+        "Generic Soft Keyboard"
+      ],
+      "url": "http://soft-confirmation.name",
+      "address": "New Thurmanmouth",
+      "branch": "Fort Lauderdale",
+      "tel": "02-372-7548",
+      "rating": "2.9",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "dessert",
+      "storeName": "Deckow, Koelpin and Breitenberg",
+      "menu": [
+        "Small Granite Gloves",
+        "Unbranded Fresh Pizza",
+        "Ergonomic Rubber Pizza"
+      ],
+      "url": "https://gloomy-swath.info",
+      "address": "Huelsview",
+      "branch": "Yuba City",
+      "tel": "02-304-4827",
+      "rating": "1.6",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "dessert",
+      "storeName": "Thompson, Torphy and Armstrong",
+      "menu": [
+        "Unbranded Rubber Bike",
+        "Modern Plastic Towels",
+        "Practical Fresh Hat"
+      ],
+      "url": "https://pesky-slash.net",
+      "address": "Homestead",
+      "branch": "Chandler",
+      "tel": "02-917-0806",
+      "rating": "3.3",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "dessert",
+      "storeName": "Kunde LLC",
+      "menu": ["Tasty Metal Car", "Bespoke Metal Gloves", "Modern Frozen Tuna"],
+      "url": "http://worldly-defense.com",
+      "address": "Lake Ashtonborough",
+      "branch": "Chattanooga",
+      "tel": "02-113-8068",
+      "rating": "3.1",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "dessert",
+      "storeName": "Emard and Sons",
+      "menu": [
+        "Electronic Concrete Computer",
+        "Elegant Soft Car",
+        "Bespoke Concrete Chicken"
+      ],
+      "url": "http://violet-swivel.biz",
+      "address": "Hillardberg",
+      "branch": "Palo Alto",
+      "tel": "02-529-7894",
+      "rating": "3.7",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "dessert",
+      "storeName": "Rogahn - Hettinger",
+      "menu": [
+        "Handcrafted Wooden Hat",
+        "Practical Granite Shoes",
+        "Practical Metal Bike"
+      ],
+      "url": "http://pleased-warren.info",
+      "address": "North Emmanuellemouth",
+      "branch": "Palm Springs",
+      "tel": "02-589-4165",
+      "rating": "3.4",
+      "image": "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dessert/dessert3.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert4.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert5.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg",
+        "https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg"
+      ]
+    }
+  ],
+  "pastas": [
+    {
+      "id": 1,
+      "type": "pasta",
+      "storeName": "Bartell and Sons",
+      "menu": [
+        "Handcrafted Concrete Mouse",
+        "Licensed Wooden Soap",
+        "Recycled Bronze Gloves"
+      ],
+      "url": "http://scary-game.com",
+      "address": "Fort Jimmie",
+      "branch": "Poinciana",
+      "tel": "02-956-4923",
+      "rating": "1.7",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "pasta",
+      "storeName": "Corkery - O'Keefe",
+      "menu": [
+        "Bespoke Soft Shoes",
+        "Practical Metal Shoes",
+        "Ergonomic Bronze Gloves"
+      ],
+      "url": "https://self-assured-bulldozer.org",
+      "address": "New Edytheberg",
+      "branch": "New Haven",
+      "tel": "02-508-2406",
+      "rating": "2.4",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "pasta",
+      "storeName": "Reilly, Willms and Ankunding",
+      "menu": [
+        "Intelligent Fresh Chicken",
+        "Awesome Bronze Shoes",
+        "Intelligent Steel Pizza"
+      ],
+      "url": "https://eager-interferometer.net",
+      "address": "Fremont",
+      "branch": "Idaho Falls",
+      "tel": "02-667-3072",
+      "rating": "1.9",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "pasta",
+      "storeName": "Mayer, Hettinger and Moore",
+      "menu": [
+        "Luxurious Frozen Shoes",
+        "Fantastic Wooden Cheese",
+        "Bespoke Wooden Soap"
+      ],
+      "url": "http://unwilling-roast.name",
+      "address": "Vanessaton",
+      "branch": "Redlands",
+      "tel": "02-118-2083",
+      "rating": "4.8",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "pasta",
+      "storeName": "Huel - Williamson",
+      "menu": [
+        "Awesome Cotton Towels",
+        "Tasty Fresh Shirt",
+        "Intelligent Wooden Bacon"
+      ],
+      "url": "http://spanish-cyst.info",
+      "address": "Goodwinworth",
+      "branch": "Wesley Chapel",
+      "tel": "02-305-4562",
+      "rating": "0.28",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "pasta",
+      "storeName": "Osinski - Wisozk",
+      "menu": [
+        "Rustic Steel Mouse",
+        "Sleek Fresh Ball",
+        "Electronic Wooden Pizza"
+      ],
+      "url": "http://loathsome-alphabet.name",
+      "address": "Council Bluffs",
+      "branch": "Lakeland",
+      "tel": "02-747-3593",
+      "rating": "0.67",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "pasta",
+      "storeName": "Hoeger LLC",
+      "menu": [
+        "Intelligent Metal Gloves",
+        "Generic Bronze Bike",
+        "Refined Rubber Computer"
+      ],
+      "url": "http://jagged-still.info",
+      "address": "North Austen",
+      "branch": "Cleveland Heights",
+      "tel": "02-520-7022",
+      "rating": "4.7",
+      "image": "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pasta/pasta3.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta4.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta5.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg",
+        "https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg"
+      ]
+    }
+  ],
+  "rices": [
+    {
+      "id": 1,
+      "type": "rice",
+      "storeName": "Heaney - Johnson",
+      "menu": [
+        "Luxurious Steel Pizza",
+        "Gorgeous Wooden Gloves",
+        "Modern Cotton Sausages"
+      ],
+      "url": "http://untried-vitamin.info",
+      "address": "Barrowsborough",
+      "branch": "Ashburn",
+      "tel": "02-125-4523",
+      "rating": "2.0",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "rice",
+      "storeName": "Parisian, Collins and O'Connell",
+      "menu": [
+        "Handmade Wooden Fish",
+        "Oriental Plastic Chair",
+        "Ergonomic Rubber Sausages"
+      ],
+      "url": "https://damaged-doctor.org",
+      "address": "East Dasia",
+      "branch": "Freeport",
+      "tel": "02-922-2589",
+      "rating": "1.3",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "rice",
+      "storeName": "Johnston Inc",
+      "menu": [
+        "Rustic Granite Keyboard",
+        "Incredible Concrete Car",
+        "Small Cotton Car"
+      ],
+      "url": "https://blissful-preference.net",
+      "address": "Leuschkehaven",
+      "branch": "Mansfield",
+      "tel": "02-280-1996",
+      "rating": "2.3",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "rice",
+      "storeName": "Romaguera and Sons",
+      "menu": [
+        "Luxurious Granite Car",
+        "Tasty Plastic Soap",
+        "Handmade Plastic Computer"
+      ],
+      "url": "https://remorseful-snowboarding.net",
+      "address": "North Moshe",
+      "branch": "Altamonte Springs",
+      "tel": "02-262-0174",
+      "rating": "0.77",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "rice",
+      "storeName": "Kihn, Gerhold and Welch",
+      "menu": [
+        "Modern Cotton Pants",
+        "Modern Cotton Hat",
+        "Refined Bronze Towels"
+      ],
+      "url": "http://outrageous-cue.net",
+      "address": "Croninburgh",
+      "branch": "San Diego",
+      "tel": "02-556-7599",
+      "rating": "1.3",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "rice",
+      "storeName": "Mayer - Hammes",
+      "menu": [
+        "Fantastic Cotton Cheese",
+        "Practical Fresh Bike",
+        "Licensed Metal Shirt"
+      ],
+      "url": "http://grown-stepmother.name",
+      "address": "New Bedford",
+      "branch": "Azusa",
+      "tel": "02-332-7916",
+      "rating": "1.8",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "rice",
+      "storeName": "Walter - Wilkinson",
+      "menu": ["Tasty Cotton Towels", "Rustic Frozen Bike", "Small Soft Shoes"],
+      "url": "https://negative-management.biz",
+      "address": "Shaniaton",
+      "branch": "Charlottesville",
+      "tel": "02-465-5124",
+      "rating": "0.42",
+      "image": "https://foodish-api.herokuapp.com/images/rice/rice7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/rice/rice3.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice4.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice5.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice6.jpg",
+        "https://foodish-api.herokuapp.com/images/rice/rice7.jpg"
+      ]
+    }
+  ],
+  "dosas": [
+    {
+      "id": 1,
+      "type": "dosa",
+      "storeName": "Sipes - Strosin",
+      "menu": [
+        "Awesome Bronze Hat",
+        "Tasty Plastic Shoes",
+        "Practical Cotton Tuna"
+      ],
+      "url": "http://afraid-herbs.info",
+      "address": "Lake Ridge",
+      "branch": "Springdale",
+      "tel": "02-489-1756",
+      "rating": "1.3",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "dosa",
+      "storeName": "Gerhold Inc",
+      "menu": [
+        "Gorgeous Bronze Keyboard",
+        "Elegant Rubber Chips",
+        "Ergonomic Cotton Keyboard"
+      ],
+      "url": "https://altruistic-obsidian.com",
+      "address": "Hesterland",
+      "branch": "Mount Vernon",
+      "tel": "02-778-1177",
+      "rating": "1.1",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa2.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "dosa",
+      "storeName": "Borer, Ryan and Weimann",
+      "menu": [
+        "Practical Concrete Shirt",
+        "Modern Fresh Cheese",
+        "Small Granite Chicken"
+      ],
+      "url": "https://noteworthy-e-reader.com",
+      "address": "South Kiara",
+      "branch": "Gilroy",
+      "tel": "02-425-6072",
+      "rating": "0.18",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "dosa",
+      "storeName": "Rowe - Ruecker",
+      "menu": [
+        "Tasty Concrete Tuna",
+        "Modern Bronze Towels",
+        "Luxurious Plastic Pizza"
+      ],
+      "url": "http://eager-settlement.biz",
+      "address": "Mentor",
+      "branch": "Columbia",
+      "tel": "02-767-8647",
+      "rating": "2.0",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "dosa",
+      "storeName": "Kozey - Gottlieb",
+      "menu": [
+        "Incredible Cotton Keyboard",
+        "Unbranded Rubber Gloves",
+        "Incredible Plastic Gloves"
+      ],
+      "url": "http://elastic-core.info",
+      "address": "Scarlettville",
+      "branch": "North Miami",
+      "tel": "02-755-4423",
+      "rating": "0.028",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "dosa",
+      "storeName": "Medhurst - Cartwright",
+      "menu": [
+        "Elegant Fresh Ball",
+        "Practical Frozen Shirt",
+        "Recycled Granite Shoes"
+      ],
+      "url": "https://optimal-preservation.net",
+      "address": "East Arch",
+      "branch": "Melbourne",
+      "tel": "02-461-4586",
+      "rating": "2.1",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "dosa",
+      "storeName": "Hansen, Feest and Daugherty",
+      "menu": [
+        "Awesome Concrete Pants",
+        "Intelligent Fresh Bike",
+        "Luxurious Wooden Ball"
+      ],
+      "url": "https://untrue-banner.org",
+      "address": "New Kaleb",
+      "branch": "Commerce City",
+      "tel": "02-338-5159",
+      "rating": "0.28",
+      "image": "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/dosa/dosa3.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa4.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa5.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg",
+        "https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg"
+      ]
+    }
+  ],
+  "popular_foods": [
+    {
+      "id": 1,
+      "type": "pizza",
+      "storeName": "Feest, Bergnaum and Kerluke",
+      "menu": [
+        "Rustic Bronze Computer",
+        "Handcrafted Cotton Hat",
+        "Licensed Steel Sausages"
+      ],
+      "url": "https://perfumed-prune.name",
+      "address": "New Petercester",
+      "branch": "Meriden",
+      "tel": "02-513-3579",
+      "rating": "1.7",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "pizza",
+      "storeName": "Wintheiser and Sons",
+      "menu": [
+        "Small Metal Pizza",
+        "Handmade Rubber Cheese",
+        "Intelligent Rubber Chips"
+      ],
+      "url": "https://scented-jaguar.com",
+      "address": "Port Mia",
+      "branch": "Fishers",
+      "tel": "02-342-7503",
+      "rating": "2.0",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "pizza",
+      "storeName": "Kunze Group",
+      "menu": [
+        "Tasty Plastic Bacon",
+        "Gorgeous Metal Bacon",
+        "Sleek Frozen Keyboard"
+      ],
+      "url": "http://elliptical-flame.com",
+      "address": "Yonkers",
+      "branch": "Boynton Beach",
+      "tel": "02-195-5803",
+      "rating": "1.8",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "pizza",
+      "storeName": "Torphy, Buckridge and Moore",
+      "menu": [
+        "Electronic Rubber Salad",
+        "Tasty Soft Salad",
+        "Bespoke Fresh Bike"
+      ],
+      "url": "https://separate-bias.name",
+      "address": "San Luis Obispo",
+      "branch": "Fishers",
+      "tel": "02-475-5451",
+      "rating": "2.1",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "pizza",
+      "storeName": "Mertz Group",
+      "menu": [
+        "Modern Steel Table",
+        "Sleek Rubber Pants",
+        "Ergonomic Frozen Cheese"
+      ],
+      "url": "http://bustling-interloper.biz",
+      "address": "Rutherfordview",
+      "branch": "New Brunswick",
+      "tel": "02-214-1810",
+      "rating": "3.9",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "pizza",
+      "storeName": "Schoen Inc",
+      "menu": [
+        "Practical Soft Sausages",
+        "Licensed Plastic Ball",
+        "Fantastic Metal Salad"
+      ],
+      "url": "https://whispered-blood.info",
+      "address": "Annabelland",
+      "branch": "Findlay",
+      "tel": "02-822-4390",
+      "rating": "1.5",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "pizza",
+      "storeName": "Franey, Heathcote and Goyette",
+      "menu": [
+        "Luxurious Steel Ball",
+        "Electronic Cotton Car",
+        "Refined Plastic Cheese"
+      ],
+      "url": "https://fragrant-damage.biz",
+      "address": "South Jacques",
+      "branch": "Conroe",
+      "tel": "02-252-5541",
+      "rating": "4.6",
+      "image": "https://foodish-api.herokuapp.com/images/pizza/pizza1.jpg",
+      "detailImage": [
+        "https://foodish-api.herokuapp.com/images/pizza/pizza3.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza4.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza5.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg",
+        "https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg"
+      ]
+    }
+  ]
+}
