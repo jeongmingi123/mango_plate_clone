@@ -15,6 +15,11 @@ export type Food = {
   reviews: string[];
 };
 
+export type TReview = {
+  comment: string;
+  expression: "Good" | "Normal" | "Bad";
+};
+
 export type FoodType =
   | "biryani"
   | "burger"
@@ -77,7 +82,6 @@ class FoodService {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...data }),
     };
-
     return await fetch(
       `http://localhost:3003/${foodType}s/${id}`,
       requsestOption

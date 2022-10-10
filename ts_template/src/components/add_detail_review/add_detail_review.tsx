@@ -1,10 +1,10 @@
-import { Nav } from "../nav/nav";
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 import { foodState } from "../../store/atoms";
 import tw from "tailwind-styled-components";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import FoodService, { Food, FoodType } from "../../service/foodService";
+import Nav from "../nav/nav";
 
 interface IProps {
   foodService: {
@@ -147,16 +147,19 @@ const AddDetailReview = ({ foodService }: IProps) => {
   };
 
   const onSubmit = async () => {
-    const reviews = [...food.reviews, inputRef.current!.value];
-    const copy: Food = { ...food, reviews };
+    const copy: Food = {
+      ...food,
+      reviews: [...food.reviews, inputRef.current!.value],
+    };
 
     foodService.addReview(params.type!, params.id!, copy).then((res) => {
       if (res.status === 404) {
         console.log(res);
         return;
       }
-      console.log(res);
-      setFood(copy);
+      setFood((prev) => {
+        return { ...prev, reviews: [...prev.reviews, inputRef.current!.value] };
+      });
       return navigate(`/${params.type}/${params.id}`);
     });
   };
@@ -173,7 +176,7 @@ const AddDetailReview = ({ foodService }: IProps) => {
 
   return (
     <>
-      <Nav></Nav>
+      <Nav />
       <Section>
         <Wrapper>
           <TitleWapper>

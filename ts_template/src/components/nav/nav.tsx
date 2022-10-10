@@ -1,5 +1,5 @@
 import { useScroll } from "framer-motion";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
@@ -91,7 +91,7 @@ const myVars = {
   },
 };
 
-export function Nav() {
+const Nav = () => {
   const homeMatch = useMatch("/");
 
   const { scrollY } = useScroll();
@@ -145,4 +145,6 @@ export function Nav() {
       </NavContainer>
     </>
   );
-}
+};
+
+export default memo(Nav);

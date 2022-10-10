@@ -1,10 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { Food, FoodType } from "../../service/foodService";
-import { Nav } from "../nav/nav";
 import tw from "tailwind-styled-components";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 import { popularFoodState, foodState } from "../../store/atoms";
 import { useQuery } from "react-query";
+import Nav from "../nav/nav";
 
 interface IProps {
   foodService: {
@@ -54,7 +54,7 @@ const DetailNav = tw.div`
 
 const DetailNavTexts = tw.div`
   flex
-  w-80
+  w-2/3
   text-3xl
 `;
 
@@ -254,7 +254,6 @@ const Li = tw.li`
 
 const FoodDetail = ({ foodService }: IProps) => {
   const params = useParams();
-  const popularFood = useRecoilValue(popularFoodState);
   const { data: food, isLoading } = useQuery<Food>(["detailFood"], () => {
     return foodService.getFoodById(params.type!, params.id!);
   });
