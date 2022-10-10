@@ -12,6 +12,7 @@ export type Food = {
   rating: string;
   image: string;
   detailImage: string[];
+  reviews: string[];
 };
 
 export type FoodType =
@@ -68,6 +69,19 @@ class FoodService {
     return await fetch(`${this.baseUrl}/${foodType}s/${id}`)
       .then((response) => response.json())
       .catch((error) => console.log("error", error));
+  }
+
+  async addReview(foodType: string, id: string, data: Food) {
+    const requsestOption = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data }),
+    };
+
+    return await fetch(
+      `http://localhost:3003/${foodType}s/${id}`,
+      requsestOption
+    );
   }
 }
 

@@ -24,7 +24,10 @@ function App({ foodService }: IProps) {
             path="/:type/:id"
             element={<FoodDetail foodService={foodService} />}
           ></Route>
-          <Route path="/:type/:id/new" element={<AddDetailReview />}></Route>
+          <Route
+            path="/:type/:id/new"
+            element={<AddDetailReview foodService={foodService} />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

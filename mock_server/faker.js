@@ -59,6 +59,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg`,
       `https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg`,
     ],
+    reviews: [],
   });
   db.burgers.push({
     id: i,
@@ -82,6 +83,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/burger/burger6.jpg`,
       `https://foodish-api.herokuapp.com/images/burger/burger7.jpg`,
     ],
+    reviews: [],
   });
   db.desserts.push({
     id: i,
@@ -105,6 +107,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/dessert/dessert6.jpg`,
       `https://foodish-api.herokuapp.com/images/dessert/dessert7.jpg`,
     ],
+    reviews: [],
   });
   db.pastas.push({
     id: i,
@@ -128,6 +131,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg`,
       `https://foodish-api.herokuapp.com/images/pasta/pasta7.jpg`,
     ],
+    reviews: [],
   });
   db.rices.push({
     id: i,
@@ -151,6 +155,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/rice/rice6.jpg`,
       `https://foodish-api.herokuapp.com/images/rice/rice7.jpg`,
     ],
+    reviews: [],
   });
 
   db.dosas.push({
@@ -175,6 +180,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/dosa/dosa6.jpg`,
       `https://foodish-api.herokuapp.com/images/dosa/dosa7.jpg`,
     ],
+    reviews: [],
   });
 
   db.popular_foods.push({
@@ -199,6 +205,7 @@ for (let i = 1; i < 8; i++) {
       `https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg`,
       `https://foodish-api.herokuapp.com/images/pizza/pizza7.jpg`,
     ],
+    reviews: [],
   });
 }
 console.log(JSON.stringify(db));

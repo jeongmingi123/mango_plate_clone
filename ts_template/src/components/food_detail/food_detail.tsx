@@ -1,9 +1,7 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
-import FoodService, { Food, FoodType } from "../../service/foodService";
+import { Food, FoodType } from "../../service/foodService";
 import { Nav } from "../nav/nav";
 import tw from "tailwind-styled-components";
-import { useEffect } from "react";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 import { popularFoodState, foodState } from "../../store/atoms";
 import { useQuery } from "react-query";
@@ -30,21 +28,20 @@ const Image = tw.img`
 
 const Wrapper = tw.div`
   w-full
+  justify-center
   flex
   mt-7
 `;
 
 const Detail = tw.div`
+  w-full
   flex
   justify-center
-  w-4/5
   h-96
 `;
 
 const DetailContainer = tw.div`
-  w-2/3
-  h-96
-
+  w-3/5
 `;
 
 const DetailNav = tw.div`
@@ -57,7 +54,7 @@ const DetailNav = tw.div`
 
 const DetailNavTexts = tw.div`
   flex
-  w-60
+  w-80
   text-3xl
 `;
 
@@ -131,7 +128,7 @@ const Th = tw.th`
   table-fixed
   text-left
   w-32
-  pb-2
+  pb-1
 `;
 const Td = tw.td`
   text-gray-500
@@ -143,7 +140,6 @@ const ReviewWrapper = tw.div`
  mt-3
  flex
  justify-between
- h-96
 `;
 
 const ReviewTitleWrapper = tw.div`
@@ -156,6 +152,7 @@ const ReviewTitle = tw.span``;
 
 const ReviewCount = tw.span`
   ml-1
+  text-orange-400
 `;
 
 const ReviewEvaluationWrapper = tw.div`
@@ -169,6 +166,23 @@ const ReviewEvaluationWrapper = tw.div`
 const ReviewEvaluationContainer = tw.div`
 `;
 const ReviewEvaluation = tw.span``;
+
+const ReviewCommentWrapper = tw.div`
+  mt-7
+`;
+
+const ReviewText = tw.div`
+  w-full
+  h-32
+  pt-5
+  border-b-2
+`;
+
+const ReviewTextComment = tw.span``;
+
+const ReviewTextCount = tw.span`
+  text-orange-400
+`;
 
 // more infomation => map, restaurant
 const MoreInfo = tw.div`
@@ -232,15 +246,18 @@ const Dd = tw.dd`
   text-gray-700
 `;
 
+const Ul = tw.ul``;
+
+const Li = tw.li`
+  mb-1
+`;
+
 const FoodDetail = ({ foodService }: IProps) => {
   const params = useParams();
   const popularFood = useRecoilValue(popularFoodState);
-
   const { data: food, isLoading } = useQuery<Food>(["detailFood"], () => {
     return foodService.getFoodById(params.type!, params.id!);
   });
-
-  console.log(food);
 
   return (
     <>
@@ -303,7 +320,7 @@ const FoodDetail = ({ foodService }: IProps) => {
                       </Tr>
                       <Tr>
                         <Th>음식 종류</Th>
-                        <Td>{food!.menu[0]}</Td>
+                        <Td>{food!.type}</Td>
                       </Tr>
                       <Tr>
                         <Th>주차</Th>
@@ -325,6 +342,12 @@ const FoodDetail = ({ foodService }: IProps) => {
                         <Th>웹 사이트</Th>
                         <Td>{food!.url}</Td>
                       </Tr>
+                      <Tr>
+                        <Th>메늎</Th>
+                        <Td>
+                          <Ul>{food && food.menu.map((m) => <Li>{m}</Li>)}</Ul>
+                        </Td>
+                      </Tr>
                     </TableBody>
                   </DetailTable>
                 </DetailMain>
@@ -334,7 +357,7 @@ const FoodDetail = ({ foodService }: IProps) => {
                 <ReviewWrapper>
                   <ReviewTitleWrapper>
                     <ReviewTitle>리뷰</ReviewTitle>
-                    <ReviewCount>(0)</ReviewCount>
+                    <ReviewCount>{food!.reviews.length}</ReviewCount>
                   </ReviewTitleWrapper>
                   <ReviewEvaluationWrapper>
                     <ReviewEvaluationContainer>
@@ -355,38 +378,18 @@ const FoodDetail = ({ foodService }: IProps) => {
                     </ReviewEvaluationContainer>
                   </ReviewEvaluationWrapper>
                 </ReviewWrapper>
-              </DetailContainer>
-            </Detail>
-            <MoreInfo>
-              <Map>Map</Map>
-              <PopularFoods>
-                <PopularTitle>인기 식당</PopularTitle>
-                {popularFood.length !== 0 &&
-                  popularFood.map((food) => (
+                <ReviewCommentWrapper>
+                  {food!.reviews.map((review, index) => (
                     <>
-                      <PopularFoodItem>
-                        <PopularFoodImage src={food.url} />
-                        <PopularTextWapper>
-                          <PopularStoreName>{food.storeName}</PopularStoreName>
-                          <Container>
-                            <Dt>음식 종류:</Dt>
-                            <Dd>{food.type}</Dd>
-                          </Container>
-                          <Container>
-                            <Dt>위치:</Dt>
-                            <Dd>{food.address}</Dd>
-                          </Container>
-                          <Container>
-                            <Dt>가격대</Dt>
-                            <Dd>2만원 미만</Dd>
-                          </Container>
-                        </PopularTextWapper>
-                      </PopularFoodItem>
-                      <Line></Line>
+                      <ReviewText>
+                        <ReviewTextCount>({index + 1})</ReviewTextCount>
+                        <ReviewTextComment> {review}</ReviewTextComment>
+                      </ReviewText>
                     </>
                   ))}
-              </PopularFoods>
-            </MoreInfo>
+                </ReviewCommentWrapper>
+              </DetailContainer>
+            </Detail>
           </Wrapper>
         </>
       )}
