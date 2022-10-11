@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "mock_server.js",
-  "type": "module",
   "scripts": {
+    "server": "json-server-auth --watch db.json --port 3003",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +14,7 @@
     "json-server": "^0.17.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.5.0"
+    "@faker-js/faker": "^7.5.0",
+    "json-server-auth": "^2.1.0"
   }
 }

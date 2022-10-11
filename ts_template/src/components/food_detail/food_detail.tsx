@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Food, FoodType } from "../../service/foodService";
 import tw from "tailwind-styled-components";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
-import { popularFoodState, foodState } from "../../store/atoms";
+import { popularFoodState, foodState, userState } from "../../store/atoms";
 import { useQuery } from "react-query";
 import Nav from "../nav/nav";
 
@@ -254,9 +254,11 @@ const Li = tw.li`
 
 const FoodDetail = ({ foodService }: IProps) => {
   const params = useParams();
+  const userValue = useRecoilValue(userState);
   const { data: food, isLoading } = useQuery<Food>(["detailFood"], () => {
     return foodService.getFoodById(params.type!, params.id!);
   });
+  console.log(userValue);
 
   return (
     <>

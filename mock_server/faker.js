@@ -1,14 +1,5 @@
 import { faker } from "@faker-js/faker";
 
-function getPopularFood(foodType) {
-  const url = `${this.baseUrl}/${foodType}/${foodType}18.jpg`;
-  return url;
-}
-
-function getImageUrl(foodType, count) {
-  const url = `${this.baseUrl}/${foodType}/${foodType}${count}.jpg`;
-}
-
 const db = {
   foods: [],
   pizzas: [],
@@ -18,6 +9,7 @@ const db = {
   rices: [],
   dosas: [],
   popular_foods: [],
+  users: [],
 };
 
 for (let i = 1; i < 8; i++) {
