@@ -12,6 +12,11 @@
   .w-400px {
     width: 400px;
   }
+ 
+  .h-800px {
+      height: 800px;
+  }
+  
 };
 
 body {
@@ -21,6 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {

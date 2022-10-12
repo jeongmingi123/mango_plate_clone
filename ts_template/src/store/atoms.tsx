@@ -3,7 +3,7 @@ import { Food } from "../service/foodService";
 
 interface IUser {
   email: string;
-  id: number;
+  id: string;
 }
 
 export const foodState = atom<Food>({

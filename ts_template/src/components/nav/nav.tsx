@@ -3,6 +3,8 @@ import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { userState } from "../../store/atoms";
 
 export interface INavbarProps {}
 
@@ -83,6 +85,11 @@ const SearchBtn = tw.button`
   text-base
 `;
 
+const Logout = tw.span`
+  items-start
+  hover:cursor-pointer
+`;
+
 const myVars = {
   start: { scale: 0.8 },
   end: {
@@ -98,6 +105,8 @@ const Nav = () => {
 
   const [isOverTextBox, setIsOverTextBox] = useState(false);
 
+  const [user, setUser] = useRecoilState(userState);
+
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() > 340) {
@@ -107,6 +116,12 @@ const Nav = () => {
       }
     });
   }, [scrollY]);
+
+  const handleLogout = (): void => {
+    localStorage.clear();
+    setUser(undefined);
+    console.log(user);
+  };
 
   return (
     <>
@@ -125,9 +140,23 @@ const Nav = () => {
             <Link to="/" style={{ display: "inline-block", height: "32px" }}>
               Sweet 스토리
             </Link>
-            <div>
-              <Icon icon="fa-solid fa-user" />
-            </div>
+            {user ? (
+              <>
+                <Link to="/">
+                  <span>유저정보</span>
+                </Link>
+                <Logout onClick={handleLogout}>로그아웃</Logout>
+              </>
+            ) : (
+              <>
+                <Link to="/signup">
+                  <span>가입하기</span>
+                </Link>
+                <Link to="/login">
+                  <span>로그인</span>
+                </Link>
+              </>
+            )}
           </Menu>
         </Navbar>
         {homeMatch ? (
@@ -147,4 +176,4 @@ const Nav = () => {
   );
 };
 
-export default memo(Nav);
+export default Nav;

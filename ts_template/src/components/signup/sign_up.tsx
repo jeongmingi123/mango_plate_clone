@@ -1,20 +1,16 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { userState } from "../../store/atoms";
 import { IUser, IUserResponse } from "../../service/auth_service";
 import Nav from "../nav/nav";
 import tw from "tailwind-styled-components";
 
 interface IProps {
   authService: {
-    login(user: IUser): Promise<IUserResponse>;
+    signUp(user: IUser): Promise<IUserResponse>;
   };
 }
 
-const LoginSection = tw.section`
+const SignupSection = tw.section`
   w-full
   h-800px
   flex
@@ -23,7 +19,7 @@ const LoginSection = tw.section`
   items-center
 `;
 
-const LoginWrapper = tw.div`
+const SignupWrapper = tw.div`
   flex
   flex-col
   items-center
@@ -37,6 +33,11 @@ const LoginWrapper = tw.div`
 const Title = tw.h1`
   text-5xl
   mb-10
+`;
+
+const PasswordErrorMessage = tw.h1`
+  text-red-600
+  text-xl
 `;
 
 const UserWrapper = tw.div`
@@ -84,43 +85,54 @@ const Button = tw.button`
   text-2xl
 `;
 
-const Login = ({ authService }: IProps) => {
+const SignUp = ({ authService }: IProps) => {
   const navigate = useNavigate();
-  const setUser = useSetRecoilState(userState);
-  const userValue = useRecoilValue(userState);
 
+  const [isValidPassword, setIsValidPassword] = useState(true);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const password2Ref = useRef<HTMLInputElement>(null);
 
   const doSignUp = async () => {
+    const email = emailRef.current!.value;
+    const password = passwordRef.current!.value;
+    const password2 = password2Ref.current!.value;
+
+    if (password !== password2) {
+      setIsValidPassword(false);
+      return;
+    }
+
     const user = {
-      email: emailRef.current!.value,
-      password: passwordRef.current!.value,
+      email,
+      password,
     };
 
-    authService.login(user).then((response) => {
-      if (response.status !== 200) {
-        console.log("error 발생");
-        return;
-      }
-      const user = {
-        email: response.data.user.email,
-        id: response.data.user.id,
-      };
-
-      localStorage.setItem("token", response.data.accessToken);
-      localStorage.setItem("id", response.data.user.id);
-      setUser(user);
-      return navigate("/");
-    });
+    authService
+      .signUp(user)
+      .then((response) => {
+        if (response.status !== 201) {
+          return;
+        }
+        console.log(JSON.stringify(response.data));
+        navigate("/");
+      })
+      .catch(console.log);
   };
 
   return (
     <>
       <Nav />
-      <LoginSection>
-        <LoginWrapper>
-          <Title>들어가기</Title>
+      <SignupSection>
+        <SignupWrapper>
+          <Title>회원가입</Title>
+          {!isValidPassword ? (
+            <PasswordErrorMessage>
+              패스워드를 다시 확인해주세요
+            </PasswordErrorMessage>
+          ) : (
+            ""
+          )}
           <UserWrapper>
             <InputWrapper>
               <Label>이메일 주소</Label>
@@ -130,14 +142,18 @@ const Login = ({ authService }: IProps) => {
               <Label>비밀번호</Label>
               <Input type="password" ref={passwordRef} />
             </InputWrapper>
+            <InputWrapper>
+              <Label>비밀번호 확인</Label>
+              <Input type="password" ref={password2Ref} />
+            </InputWrapper>
             <ButtonWrapper>
               <Button>취소</Button>
-              <Button onClick={doSignUp}>로그인</Button>
+              <Button onClick={doSignUp}>가입</Button>
             </ButtonWrapper>
           </UserWrapper>
-        </LoginWrapper>
-      </LoginSection>
+        </SignupWrapper>
+      </SignupSection>
     </>
   );
 };
-export default Login;
+export default SignUp;
