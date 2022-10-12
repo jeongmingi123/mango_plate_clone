@@ -142,18 +142,18 @@ const Nav = () => {
             </Link>
             {user ? (
               <>
-                <Link to="/">
-                  <span>유저정보</span>
+                <Link to="/profile">
+                  <span>My</span>
                 </Link>
-                <Logout onClick={handleLogout}>로그아웃</Logout>
+                <Logout onClick={handleLogout}>Logout</Logout>
               </>
             ) : (
               <>
                 <Link to="/signup">
-                  <span>가입하기</span>
+                  <span>SignUp</span>
                 </Link>
                 <Link to="/login">
-                  <span>로그인</span>
+                  <span>Login</span>
                 </Link>
               </>
             )}

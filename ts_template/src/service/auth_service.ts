@@ -50,7 +50,7 @@ class AuthService {
   }
 
   async getLoggedInUser() {
-    const id = localStorage.getItem("id");
+    const id = localStorage.getItem("token");
     if (!id) {
       return;
     }

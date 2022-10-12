@@ -5,6 +5,7 @@ import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 import { popularFoodState, foodState, userState } from "../../store/atoms";
 import { useQuery } from "react-query";
 import Nav from "../nav/nav";
+import { expressionType } from "../add_detail_review/add_detail_review";
 
 interface IProps {
   foodService: {
@@ -173,9 +174,14 @@ const ReviewCommentWrapper = tw.div`
 
 const ReviewText = tw.div`
   w-full
+  flex
+  justify-between
   h-32
   pt-5
   border-b-2
+`;
+
+const ReivewTextWrapper = tw.div`
 `;
 
 const ReviewTextComment = tw.span``;
@@ -184,57 +190,19 @@ const ReviewTextCount = tw.span`
   text-orange-400
 `;
 
-// more infomation => map, restaurant
-const MoreInfo = tw.div`
-  w-1/5
-  bg-stone-200
-`;
+const IconWrapper = tw.div``;
 
-const Map = tw.div`
-  flex
-  items-center
-  justify-center
-  w-full
-  h-96
-  text-5xl
-`;
-
-const PopularFoods = tw.div`
-  mt-5
-  bg-stone-200
-  pl-4
-  
-`;
-
-const PopularTitle = tw.h2`
-  pt-7
-  pb-7
-  text-3xl
+const ReviewIcon = tw.i<{ icon: string }>`
+  ${(props) => props.icon}
   text-orange-400
+  text-2xl
+
 `;
 
-const PopularFoodItem = tw.div`
- flex
- mt-3
- mb-3
-`;
-
-const PopularFoodImage = tw.img`
-  w-32
-  h-32
-`;
-
-const PopularTextWapper = tw.div`
-  ml-3
-`;
-
-const PopularStoreName = tw.span`
-  text-xl
-`;
-
-const Container = tw.div`
-  flex
-  text-sm
+const RatingText = tw.span`
+  text-orange-400
+  text-2xl
+  ml-2
 `;
 
 const Dt = tw.dt`
@@ -254,11 +222,28 @@ const Li = tw.li`
 
 const FoodDetail = ({ foodService }: IProps) => {
   const params = useParams();
-  const userValue = useRecoilValue(userState);
+  const user = useRecoilValue(userState);
   const { data: food, isLoading } = useQuery<Food>(["detailFood"], () => {
     return foodService.getFoodById(params.type!, params.id!);
   });
-  console.log(userValue);
+
+  const handleReviewIcon = (expression: expressionType) => {
+    if (expression === "Good") {
+      return "fa-regular fa-face-smile";
+    } else if (expression === "Normal") {
+      return "fa-regular fa-face-meh";
+    }
+    return "fa-regular fa-face-frown-open";
+  };
+
+  const handleReviewText = (expression: expressionType) => {
+    if (expression === "Good") {
+      return "맛있다";
+    } else if (expression === "Normal") {
+      return "괜찮다";
+    }
+    return "별로";
+  };
 
   return (
     <>
@@ -268,7 +253,7 @@ const FoodDetail = ({ foodService }: IProps) => {
       ) : (
         <>
           <Images>
-            {food!.detailImage.map((image) => (
+            {food!.detailImage!.map((image) => (
               <Image src={image} />
             ))}
           </Images>
@@ -284,23 +269,24 @@ const FoodDetail = ({ foodService }: IProps) => {
                     <Rating>{food!.rating}</Rating>
                   </DetailNavTexts>
                   <DetailIcons>
-                    <Link
-                      to={{
-                        pathname: `/${food!.type}/${food!.id}/new`,
-                      }}
-                    >
-                      <IconContainer>
-                        <Icon iconName="fa-solid fa-pen" />
-                        <Text>리뷰쓰기</Text>
-                      </IconContainer>
-                    </Link>
-
-                    <Link to={`/${food!.type}/${food!.id}/new`}>
-                      <IconContainer>
-                        <Icon iconName="fa-regular fa-star" />
-                        <Text>가고싶다</Text>
-                      </IconContainer>
-                    </Link>
+                    {user ? (
+                      <>
+                        <Link to={`/${food!.type}/${food!.id}/new`}>
+                          <IconContainer>
+                            <Icon iconName="fa-solid fa-pen" />
+                            <Text>리뷰쓰기</Text>
+                          </IconContainer>
+                        </Link>
+                        <Link to={`/${food!.type}/${food!.id}/new`}>
+                          <IconContainer>
+                            <Icon iconName="fa-regular fa-star" />
+                            <Text>가고싶다</Text>
+                          </IconContainer>
+                        </Link>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </DetailIcons>
                 </DetailNav>
                 <Line />
@@ -346,7 +332,7 @@ const FoodDetail = ({ foodService }: IProps) => {
                       <Tr>
                         <Th>메늎</Th>
                         <Td>
-                          <Ul>{food && food.menu.map((m) => <Li>{m}</Li>)}</Ul>
+                          <Ul>{food && food.menu!.map((m) => <Li>{m}</Li>)}</Ul>
                         </Td>
                       </Tr>
                     </TableBody>
@@ -358,33 +344,29 @@ const FoodDetail = ({ foodService }: IProps) => {
                 <ReviewWrapper>
                   <ReviewTitleWrapper>
                     <ReviewTitle>리뷰</ReviewTitle>
-                    <ReviewCount>{food!.reviews.length}</ReviewCount>
+                    <ReviewCount>{food!.reviews!.length}</ReviewCount>
                   </ReviewTitleWrapper>
-                  <ReviewEvaluationWrapper>
-                    <ReviewEvaluationContainer>
-                      <ReviewEvaluation>전체</ReviewEvaluation>
-                      <ReviewCount>(0)</ReviewCount>
-                    </ReviewEvaluationContainer>
-                    <ReviewEvaluationContainer>
-                      <ReviewEvaluation>맛있다</ReviewEvaluation>
-                      <ReviewCount>(0)</ReviewCount>
-                    </ReviewEvaluationContainer>
-                    <ReviewEvaluationContainer>
-                      <ReviewEvaluation>괜찮다</ReviewEvaluation>
-                      <ReviewCount>(0)</ReviewCount>
-                    </ReviewEvaluationContainer>
-                    <ReviewEvaluationContainer>
-                      <ReviewEvaluation>별로</ReviewEvaluation>
-                      <ReviewCount>(0)</ReviewCount>
-                    </ReviewEvaluationContainer>
-                  </ReviewEvaluationWrapper>
                 </ReviewWrapper>
                 <ReviewCommentWrapper>
-                  {food!.reviews.map((review, index) => (
+                  {food!.reviews!.map((review, index) => (
                     <>
                       <ReviewText>
-                        <ReviewTextCount>({index + 1})</ReviewTextCount>
-                        <ReviewTextComment> {review}</ReviewTextComment>
+                        <ReivewTextWrapper>
+                          <ReviewTextCount>({index + 1})</ReviewTextCount>
+                          <ReviewTextComment>
+                            {" "}
+                            {review.comment}
+                          </ReviewTextComment>
+                        </ReivewTextWrapper>
+
+                        <IconWrapper>
+                          <ReviewIcon
+                            icon={handleReviewIcon(review.expression)}
+                          ></ReviewIcon>
+                          <RatingText>
+                            {handleReviewText(review.expression)}
+                          </RatingText>
+                        </IconWrapper>
                       </ReviewText>
                     </>
                   ))}

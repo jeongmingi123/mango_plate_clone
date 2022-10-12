@@ -18,7 +18,7 @@ interface IProps {
   authService: {
     signUp(user: IUser): Promise<IUserResponse>;
     login(user: IUser): Promise<IUserResponse>;
-    getLoggedInUser: any;
+    getLoggedInUser(): Promise<{ email: string; id: string }>;
   };
 }
 

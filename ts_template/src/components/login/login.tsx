@@ -11,6 +11,7 @@ import tw from "tailwind-styled-components";
 interface IProps {
   authService: {
     login(user: IUser): Promise<IUserResponse>;
+    getLoggedInUser(): Promise<{ email: string; id: string }>;
   };
 }
 
@@ -118,6 +119,14 @@ const Login = ({ authService }: IProps) => {
     if (user) {
       return;
     }
+
+    authService.getLoggedInUser().then((res) => {
+      const user = {
+        email: res.email,
+        id: res.id,
+      };
+      return setUser(user);
+    });
   }, []);
 
   return (

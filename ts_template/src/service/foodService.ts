@@ -1,23 +1,24 @@
 import { v4 as uuidv4 } from "uuid";
 
 export type Food = {
-  id: string;
-  type: string;
-  storeName: string;
-  menu: string[];
-  url: string;
-  tel: string;
-  address: string;
-  branch: string;
-  rating: string;
-  image: string;
-  detailImage: string[];
-  reviews: string[];
+  id: string | undefined;
+  type: FoodType | undefined;
+  storeName: string | undefined;
+  menu: string[] | undefined | null;
+  url: string | undefined;
+  tel: string | undefined;
+  address: string | undefined;
+  branch: string | undefined;
+  rating: string | undefined;
+  image: string | undefined;
+  detailImage: string[] | undefined | null;
+  reviews: TReview[] | undefined | null;
 };
 
 export type TReview = {
   comment: string;
   expression: "Good" | "Normal" | "Bad";
+  userId: string | undefined;
 };
 
 export type FoodType =
@@ -76,14 +77,14 @@ class FoodService {
       .catch((error) => console.log("error", error));
   }
 
-  async addReview(foodType: string, id: string, data: Food) {
+  async addReview(food: Food) {
     const requsestOption = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...data }),
+      body: JSON.stringify({ ...food }),
     };
     return await fetch(
-      `http://localhost:3003/${foodType}s/${id}`,
+      `http://localhost:3003/${food.type}s/${food.id}`,
       requsestOption
     );
   }

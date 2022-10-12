@@ -9,7 +9,7 @@ import { userState } from "../../store/atoms";
 interface IProps {
   authService: {
     signUp(user: IUser): Promise<IUserResponse>;
-    getLoggedInUser(): any;
+    getLoggedInUser(): Promise<{ email: string; id: string }>;
   };
 }
 
@@ -98,7 +98,11 @@ const SignUp = ({ authService }: IProps) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const password2Ref = useRef<HTMLInputElement>(null);
 
-  const doSignUp = async () => {
+  const handleCancel = () => {
+    navigate("/");
+  };
+
+  const handleSignup = async () => {
     const email = emailRef.current!.value;
     const password = passwordRef.current!.value;
     const password2 = password2Ref.current!.value;
@@ -120,7 +124,7 @@ const SignUp = ({ authService }: IProps) => {
           return;
         }
         console.log(JSON.stringify(response.data));
-        navigate("/");
+        navigate("/login");
       })
       .catch(console.log);
   };
@@ -169,8 +173,8 @@ const SignUp = ({ authService }: IProps) => {
                   <Input type="password" ref={password2Ref} />
                 </InputWrapper>
                 <ButtonWrapper>
-                  <Button>취소</Button>
-                  <Button onClick={doSignUp}>가입</Button>
+                  <Button onClick={handleCancel}>취소</Button>
+                  <Button onClick={handleSignup}>가입</Button>
                 </ButtonWrapper>
               </UserWrapper>
             </>

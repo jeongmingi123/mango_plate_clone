@@ -1,5 +1,5 @@
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
-import { foodState } from "../../store/atoms";
+import { foodState, userState } from "../../store/atoms";
 import tw from "tailwind-styled-components";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,11 +10,7 @@ interface IProps {
   foodService: {
     getFoods(foodType: FoodType): any;
     getFoodById(foodType: string, id: string): Promise<Food>;
-    addReview(
-      foodType: string,
-      id: string,
-      data: Food
-    ): Promise<IResoponsePutResult>;
+    addReview(food: Food): Promise<IResoponsePutResult>;
   };
 }
 
@@ -26,7 +22,7 @@ interface IResoponsePutResult {
   redirected: boolean;
 }
 
-type expressionType = "Good" | "Normal" | "Bad";
+export type expressionType = "Good" | "Normal" | "Bad";
 
 const Section = tw.section`
   w-full
@@ -122,11 +118,14 @@ const Button = tw.button`
 `;
 
 const AddDetailReview = ({ foodService }: IProps) => {
-  const params = useParams();
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const user = useRecoilValue(userState);
+  const [expression, setExpression] = useState<expressionType>("Good");
   const food = useRecoilValue(foodState);
   const setFood = useSetRecoilState(foodState);
-  const [expression, setExpression] = useState<expressionType>("Good");
+
+  const params = useParams();
+
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const navigate = useNavigate();
 
@@ -149,16 +148,26 @@ const AddDetailReview = ({ foodService }: IProps) => {
   const onSubmit = async () => {
     const copy: Food = {
       ...food,
-      reviews: [...food.reviews, inputRef.current!.value],
+      reviews: [
+        ...food.reviews!,
+        { userId: user!.id, comment: inputRef.current!.value, expression },
+      ],
     };
+    console.log(copy);
 
-    foodService.addReview(params.type!, params.id!, copy).then((res) => {
+    foodService.addReview(copy).then((res) => {
       if (res.status === 404) {
         console.log(res);
         return;
       }
       setFood((prev) => {
-        return { ...prev, reviews: [...prev.reviews, inputRef.current!.value] };
+        return {
+          ...prev,
+          reviews: [
+            ...prev.reviews!,
+            { userId: user!.id, comment: inputRef.current!.value, expression },
+          ],
+        };
       });
       return navigate(`/${params.type}/${params.id}`);
     });
@@ -179,38 +188,44 @@ const AddDetailReview = ({ foodService }: IProps) => {
       <Nav />
       <Section>
         <Wrapper>
-          <TitleWapper>
-            {food ? (
-              <StoreName>{food.storeName}</StoreName>
-            ) : (
-              <StoreName>Loading....</StoreName>
-            )}
-            <GuideText>에 대한 솔직한 리뷰를 써주세요</GuideText>
-          </TitleWapper>
-          <ReviewEditor>
-            <Evaluation>
-              <Good isActive={expression === "Good"} onClick={onGood}>
-                <Icon icon="fa-regular fa-face-smile"></Icon>
-                <RatingText>맛있다</RatingText>
-              </Good>
-              <Normal isActive={expression === "Normal"} onClick={onNormal}>
-                <Icon icon="fa-regular fa-face-meh"></Icon>
-                <RatingText>괜찮다</RatingText>
-              </Normal>
-              <Bad isActive={expression === "Bad"} onClick={onBad}>
-                <Icon icon="fa-regular fa-face-frown-open"></Icon>
-                <RatingText>별로</RatingText>
-              </Bad>
-            </Evaluation>
-            <ReviewInput
-              placeholder="주문 하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
-              ref={inputRef}
-            />
-          </ReviewEditor>
-          <Btns>
-            <Button onClick={onCancle}>취소</Button>
-            <Button onClick={onSubmit}>등록</Button>
-          </Btns>
+          {!user ? (
+            <div>잘못된 접근입니다.</div>
+          ) : (
+            <>
+              <TitleWapper>
+                {food ? (
+                  <StoreName>{food.storeName}</StoreName>
+                ) : (
+                  <StoreName>Loading....</StoreName>
+                )}
+                <GuideText>에 대한 솔직한 리뷰를 써주세요</GuideText>
+              </TitleWapper>
+              <ReviewEditor>
+                <Evaluation>
+                  <Good isActive={expression === "Good"} onClick={onGood}>
+                    <Icon icon="fa-regular fa-face-smile"></Icon>
+                    <RatingText>맛있다</RatingText>
+                  </Good>
+                  <Normal isActive={expression === "Normal"} onClick={onNormal}>
+                    <Icon icon="fa-regular fa-face-meh"></Icon>
+                    <RatingText>괜찮다</RatingText>
+                  </Normal>
+                  <Bad isActive={expression === "Bad"} onClick={onBad}>
+                    <Icon icon="fa-regular fa-face-frown-open"></Icon>
+                    <RatingText>별로</RatingText>
+                  </Bad>
+                </Evaluation>
+                <ReviewInput
+                  placeholder="주문 하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
+                  ref={inputRef}
+                />
+              </ReviewEditor>
+              <Btns>
+                <Button onClick={onCancle}>취소</Button>
+                <Button onClick={onSubmit}>등록</Button>
+              </Btns>
+            </>
+          )}
         </Wrapper>
       </Section>
       )
