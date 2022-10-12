@@ -87,18 +87,18 @@ const Button = tw.button`
 const Login = ({ authService }: IProps) => {
   const navigate = useNavigate();
   const setUser = useSetRecoilState(userState);
-  const userValue = useRecoilValue(userState);
+  const user = useRecoilValue(userState);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const doSignUp = async () => {
-    const user = {
+    const data = {
       email: emailRef.current!.value,
       password: passwordRef.current!.value,
     };
 
-    authService.login(user).then((response) => {
+    authService.login(data).then((response) => {
       if (response.status !== 200) {
         console.log("error 발생");
         return;
@@ -120,21 +120,27 @@ const Login = ({ authService }: IProps) => {
       <Nav />
       <LoginSection>
         <LoginWrapper>
-          <Title>들어가기</Title>
-          <UserWrapper>
-            <InputWrapper>
-              <Label>이메일 주소</Label>
-              <Input type="email" ref={emailRef} />
-            </InputWrapper>
-            <InputWrapper>
-              <Label>비밀번호</Label>
-              <Input type="password" ref={passwordRef} />
-            </InputWrapper>
-            <ButtonWrapper>
-              <Button>취소</Button>
-              <Button onClick={doSignUp}>로그인</Button>
-            </ButtonWrapper>
-          </UserWrapper>
+          {user ? (
+            <Title>이미로그인이 되어있습니다.</Title>
+          ) : (
+            <>
+              <Title>들어가기</Title>
+              <UserWrapper>
+                <InputWrapper>
+                  <Label>이메일 주소</Label>
+                  <Input type="email" ref={emailRef} />
+                </InputWrapper>
+                <InputWrapper>
+                  <Label>비밀번호</Label>
+                  <Input type="password" ref={passwordRef} />
+                </InputWrapper>
+                <ButtonWrapper>
+                  <Button>취소</Button>
+                  <Button onClick={doSignUp}>로그인</Button>
+                </ButtonWrapper>
+              </UserWrapper>
+            </>
+          )}
         </LoginWrapper>
       </LoginSection>
     </>
