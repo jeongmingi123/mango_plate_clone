@@ -1,12 +1,15 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser, IUserResponse } from "../../service/auth_service";
 import Nav from "../nav/nav";
 import tw from "tailwind-styled-components";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/atoms";
 
 interface IProps {
   authService: {
     signUp(user: IUser): Promise<IUserResponse>;
+    getLoggedInUser(): any;
   };
 }
 
@@ -89,6 +92,8 @@ const SignUp = ({ authService }: IProps) => {
   const navigate = useNavigate();
 
   const [isValidPassword, setIsValidPassword] = useState(true);
+  const [user, setUser] = useRecoilState(userState);
+
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const password2Ref = useRef<HTMLInputElement>(null);
@@ -120,37 +125,56 @@ const SignUp = ({ authService }: IProps) => {
       .catch(console.log);
   };
 
+  useEffect(() => {
+    if (user) {
+      return;
+    }
+    authService.getLoggedInUser().then((res) => {
+      const user = {
+        email: res.email,
+        id: res.id,
+      };
+      return setUser(user);
+    });
+  }, []);
+
   return (
     <>
       <Nav />
       <SignupSection>
         <SignupWrapper>
-          <Title>회원가입</Title>
-          {!isValidPassword ? (
-            <PasswordErrorMessage>
-              패스워드를 다시 확인해주세요
-            </PasswordErrorMessage>
+          {user ? (
+            <Title>로그인 된 상태입니다.</Title>
           ) : (
-            ""
+            <>
+              <Title>회원가입</Title>
+              {!isValidPassword ? (
+                <PasswordErrorMessage>
+                  패스워드를 다시 확인해주세요
+                </PasswordErrorMessage>
+              ) : (
+                ""
+              )}
+              <UserWrapper>
+                <InputWrapper>
+                  <Label>이메일 주소</Label>
+                  <Input type="email" ref={emailRef} />
+                </InputWrapper>
+                <InputWrapper>
+                  <Label>비밀번호</Label>
+                  <Input type="password" ref={passwordRef} />
+                </InputWrapper>
+                <InputWrapper>
+                  <Label>비밀번호 확인</Label>
+                  <Input type="password" ref={password2Ref} />
+                </InputWrapper>
+                <ButtonWrapper>
+                  <Button>취소</Button>
+                  <Button onClick={doSignUp}>가입</Button>
+                </ButtonWrapper>
+              </UserWrapper>
+            </>
           )}
-          <UserWrapper>
-            <InputWrapper>
-              <Label>이메일 주소</Label>
-              <Input type="email" ref={emailRef} />
-            </InputWrapper>
-            <InputWrapper>
-              <Label>비밀번호</Label>
-              <Input type="password" ref={passwordRef} />
-            </InputWrapper>
-            <InputWrapper>
-              <Label>비밀번호 확인</Label>
-              <Input type="password" ref={password2Ref} />
-            </InputWrapper>
-            <ButtonWrapper>
-              <Button>취소</Button>
-              <Button onClick={doSignUp}>가입</Button>
-            </ButtonWrapper>
-          </UserWrapper>
         </SignupWrapper>
       </SignupSection>
     </>

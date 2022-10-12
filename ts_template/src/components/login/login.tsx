@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 import { userState } from "../../store/atoms";
 import { IUser, IUserResponse } from "../../service/auth_service";
 import Nav from "../nav/nav";
@@ -86,8 +86,7 @@ const Button = tw.button`
 
 const Login = ({ authService }: IProps) => {
   const navigate = useNavigate();
-  const setUser = useSetRecoilState(userState);
-  const user = useRecoilValue(userState);
+  const [user, setUser] = useRecoilState(userState);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -114,6 +113,12 @@ const Login = ({ authService }: IProps) => {
       return navigate("/");
     });
   };
+
+  useEffect(() => {
+    if (user) {
+      return;
+    }
+  }, []);
 
   return (
     <>

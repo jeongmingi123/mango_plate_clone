@@ -49,7 +49,12 @@ class AuthService {
     return axios(config);
   }
 
-  async loggedInUser(user: IUser) {}
+  async getLoggedInUser() {
+    const id = localStorage.getItem("id");
+    return fetch(`${this.baseUrl}/users/${id}`)
+      .then((response) => response.json())
+      .catch(console.log);
+  }
 }
 
 export default AuthService;
