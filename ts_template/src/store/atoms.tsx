@@ -16,7 +16,7 @@ export const popularFoodState = atom<Food[]>({
   default: [],
 });
 
-export const userState = atom<IUser>({
+export const userState = atom<IUser | undefined>({
   key: "popularFood",
   default: undefined,
 });

@@ -48,7 +48,8 @@ class AuthService {
 
     return axios(config);
   }
-  logout() {}
+
+  async loggedInUser(user: IUser) {}
 }
 
 export default AuthService;
