@@ -51,6 +51,9 @@ class AuthService {
 
   async getLoggedInUser() {
     const id = localStorage.getItem("id");
+    if (!id) {
+      return;
+    }
     return fetch(`${this.baseUrl}/users/${id}`)
       .then((response) => response.json())
       .catch(console.log);
