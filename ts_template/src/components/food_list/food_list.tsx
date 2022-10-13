@@ -11,7 +11,7 @@ interface IFoodList {
 
 const FoodListWrapper = tw.section`
   w-full
-  bg-white
+  bg-gray-200
   p-14
 `;
 

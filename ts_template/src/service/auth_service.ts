@@ -3,6 +3,7 @@ import axios from "axios";
 export interface IUser {
   email: string;
   password: string;
+  image: string | undefined;
 }
 
 export interface IUserResponse {
@@ -12,6 +13,7 @@ export interface IUserResponse {
       email: string;
       password: string;
       id: string;
+      image: string;
     };
     accessToken: string;
   };
@@ -50,7 +52,7 @@ class AuthService {
   }
 
   async getLoggedInUser() {
-    const id = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
     if (!id) {
       return;
     }

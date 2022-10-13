@@ -1,7 +1,6 @@
 import FoodList from "../food_list/food_list";
 import { Food } from "../../service/foodService";
 import { FoodType } from "../../service/foodService";
-import { popularFoodState } from "../../store/atoms";
 import { useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import { useQuery } from "react-query";

@@ -1,6 +1,6 @@
 import { useScroll } from "framer-motion";
 import { memo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
 import { useRecoilValue, useRecoilState } from "recoil";
@@ -107,6 +107,8 @@ const Nav = () => {
 
   const [user, setUser] = useRecoilState(userState);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() > 340) {
@@ -120,7 +122,7 @@ const Nav = () => {
   const handleLogout = (): void => {
     localStorage.clear();
     setUser(undefined);
-    console.log(user);
+    navigate("/");
   };
 
   return (

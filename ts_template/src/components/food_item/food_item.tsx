@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
 import { Food } from "../../service/foodService";
-import { foodState, popularFoodState } from "../../store/atoms";
+import { foodState } from "../../store/atoms";
 import { useSetRecoilState } from "recoil";
 
 interface IFoodItem {

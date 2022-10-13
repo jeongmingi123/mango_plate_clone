@@ -92,13 +92,15 @@ const Login = ({ authService }: IProps) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const doSignUp = async () => {
+  const doLogin = async () => {
     const data = {
       email: emailRef.current!.value,
       password: passwordRef.current!.value,
+      image: "",
     };
 
     authService.login(data).then((response) => {
+      console.log(response.data);
       if (response.status !== 200) {
         console.log("error 발생");
         return;
@@ -106,6 +108,7 @@ const Login = ({ authService }: IProps) => {
       const user = {
         email: response.data.user.email,
         id: response.data.user.id,
+        image: response.data.user.image,
       };
 
       localStorage.setItem("token", response.data.accessToken);
@@ -114,20 +117,6 @@ const Login = ({ authService }: IProps) => {
       return navigate("/");
     });
   };
-
-  useEffect(() => {
-    if (user) {
-      return;
-    }
-
-    authService.getLoggedInUser().then((res) => {
-      const user = {
-        email: res.email,
-        id: res.id,
-      };
-      return setUser(user);
-    });
-  }, []);
 
   return (
     <>
@@ -150,7 +139,7 @@ const Login = ({ authService }: IProps) => {
                 </InputWrapper>
                 <ButtonWrapper>
                   <Button>취소</Button>
-                  <Button onClick={doSignUp}>로그인</Button>
+                  <Button onClick={doLogin}>로그인</Button>
                 </ButtonWrapper>
               </UserWrapper>
             </>

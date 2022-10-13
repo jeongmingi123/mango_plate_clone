@@ -4,16 +4,12 @@ import { Food } from "../service/foodService";
 interface IUser {
   email: string;
   id: string;
+  image: string;
 }
 
 export const foodState = atom<Food>({
   key: "food",
   default: undefined,
-});
-
-export const popularFoodState = atom<Food[]>({
-  key: "popularFood",
-  default: [],
 });
 
 export const userState = atom<IUser | undefined>({

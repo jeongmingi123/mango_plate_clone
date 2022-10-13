@@ -5,6 +5,7 @@ import Nav from "../nav/nav";
 import tw from "tailwind-styled-components";
 import { useRecoilState } from "recoil";
 import { userState } from "../../store/atoms";
+import { faker } from "@faker-js/faker";
 
 interface IProps {
   authService: {
@@ -115,6 +116,7 @@ const SignUp = ({ authService }: IProps) => {
     const user = {
       email,
       password,
+      image: faker.image.avatar(),
     };
 
     authService
@@ -128,19 +130,6 @@ const SignUp = ({ authService }: IProps) => {
       })
       .catch(console.log);
   };
-
-  useEffect(() => {
-    if (user) {
-      return;
-    }
-    authService.getLoggedInUser().then((res) => {
-      const user = {
-        email: res.email,
-        id: res.id,
-      };
-      return setUser(user);
-    });
-  }, []);
 
   return (
     <>

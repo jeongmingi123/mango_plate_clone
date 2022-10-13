@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { Food, FoodType } from "../../service/foodService";
 import tw from "tailwind-styled-components";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
-import { popularFoodState, foodState, userState } from "../../store/atoms";
+import { foodState, userState } from "../../store/atoms";
 import { useQuery } from "react-query";
 import Nav from "../nav/nav";
 import { expressionType } from "../add_detail_review/add_detail_review";
@@ -354,7 +354,6 @@ const FoodDetail = ({ foodService }: IProps) => {
                         <ReivewTextWrapper>
                           <ReviewTextCount>({index + 1})</ReviewTextCount>
                           <ReviewTextComment>
-                            {" "}
                             {review.comment}
                           </ReviewTextComment>
                         </ReivewTextWrapper>
