@@ -3,10 +3,8 @@ import { memo, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMatch } from "react-router-dom";
 import tw from "tailwind-styled-components";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { userState } from "../../store/atoms";
-
-export interface INavbarProps {}
 
 const NavContainer = tw.div<{ isOverTextBox: boolean }>`
   w-full
