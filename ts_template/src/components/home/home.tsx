@@ -1,7 +1,6 @@
 import FoodList from "../food_list/food_list";
 import { Food } from "../../service/foodService";
 import { FoodType } from "../../service/foodService";
-import { useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import Nav from "../nav/nav";
@@ -14,8 +13,6 @@ export interface IHomeProps {
 }
 
 const Home = ({ foodService }: IHomeProps) => {
-  // const setPopularFoods = useSetRecoilState(popularFoodState);
-
   const { data: hamburgurs, isLoading: hamburgursLoading } = useQuery(
     ["hamburgurs"],
     () => {
